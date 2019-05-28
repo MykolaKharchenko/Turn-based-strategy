@@ -19,20 +19,20 @@ namespace training
     /// </summary>
     public partial class StartWindow : Window
     {
-        //public Game game = new Game();
-
-        public StartWindow(Game g)
+        public StartWindow()
         {
             InitializeComponent();
 
-            //game = g;
-            //this.DataContext = game;
         }
 
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+            //this.DialogResult = true;
+        }
 
-        //private void Accept_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.DialogResult = true;
-        //}
+        private void LoadGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,8 +28,13 @@ namespace training
 
         public ApplicationViewModel()       // deafault constructor of VM
         {
-
-            game = new Game();            
+            if (true)
+            {
+                game = new Game();
+            }
+            else
+            {
+            }
         }
 
 
@@ -42,3 +47,4 @@ namespace training
         }
     }
 }
+
