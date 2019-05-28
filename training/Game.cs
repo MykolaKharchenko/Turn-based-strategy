@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace training
 {
-    public class Game : INotifyPropertyChanged
+    public class Game : INotifyPropertyChanged          //   --  Model
     {
         private Player palyerLeft;
         private Player palyerRight;

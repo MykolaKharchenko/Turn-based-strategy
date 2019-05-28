@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using training.Services;
 
 namespace training
 {
@@ -20,10 +21,15 @@ namespace training
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public Game Game { get; private set; }
+
+        public MainWindow(Game _game)
         {
             InitializeComponent();
+
+            // must me staied only one DataContext  !!
             DataContext = new ApplicationViewModel();
+            //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
         }
     }
 }

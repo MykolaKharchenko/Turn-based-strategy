@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using training.Services;
 
 namespace training
 {
@@ -19,20 +20,23 @@ namespace training
     /// </summary>
     public partial class StartWindow : Window
     {
+        public Game game { get; private set; }
+
         public StartWindow()
         {
             InitializeComponent();
-
+            DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
-        {
-            //this.DialogResult = true;
-        }
+        //public StartWindow(Game g)
+        //{
+        //    InitializeComponent();
+        //    game = g;
+        //    this.DataContext = game;
+        //}
 
-        private void LoadGame_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        //
+        // here must be  add commands for buttons
+        //
     }
 }

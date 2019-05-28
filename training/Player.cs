@@ -9,12 +9,12 @@ using training.Units;
 
 namespace training
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : INotifyPropertyChanged            //  -- SubModel
     {
         private IUnitStack archers;
         private IUnitStack swordmen; 
         private IUnitStack peasants;
-        
+        private bool isTurn = false;
 
         public IUnitStack Archers
         { get { return archers; }
@@ -43,8 +43,6 @@ namespace training
             }
         }
 
-
-        private bool isTurn = false;
         public bool IsTurn
         {
             get { return isTurn; }
@@ -64,8 +62,10 @@ namespace training
 
         }
 
+        // existing palyer  
         public Player(string gamePath)
         {
+            // ..load from db
         }
                
         public event PropertyChangedEventHandler PropertyChanged;

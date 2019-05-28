@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace training.Services
 {
-    public class GameDrive
+    public class GameDrive      // -- must to remove this class??
     {
         //private Player palyerLeft;
         //private Player palyerRight;
@@ -25,7 +25,7 @@ namespace training.Services
             if (gamePath.Trim() != "")
                 // continued game
             {
-
+                
             }
             else
             // new game

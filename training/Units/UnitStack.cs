@@ -19,7 +19,7 @@ namespace training.Units
             get { return this.totalHealthPoint; }
             set
             {
-                totalHealthPoint = healthPoints * stackSize;
+                totalHealthPoint = healthPoints * stackSize;    
             }
         }
 
