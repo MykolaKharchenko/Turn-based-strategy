@@ -1,0 +1,34 @@
+﻿<Window x:Class="training.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:training"
+        mc:Ignorable="d"
+        Title="StartGame" Height="450" Width="360">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0"  Grid.Row="0" Grid.ColumnSpan="2" 
+                   Background="Bisque"
+                   FontSize="22"
+                   TextAlignment="Center"
+                   VerticalAlignment="Center"
+                   Padding="30"
+                   Text="Heroes of Might and Magic 1.0.0" />
+
+        <StackPanel Margin="5" Grid.Column="0"  Grid.Row="1">
+            <Button Margin="0,10" Content="New Game" Background="LightGreen" Height="50"/>
+            <Button Margin="0,10" Content="Load Game" Background="LightYellow" Height="50"/>
+            <Button Margin="0,10" Content="Exit" Background="LightCoral" Height="50"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
