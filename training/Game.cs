@@ -17,6 +17,9 @@ namespace training
 
         public Game()
         {
+            this.PlayerLeft = new Player();
+            this.palyerRight = new Player();
+            pathAddress = "";
         }
 
         public Player PlayerLeft

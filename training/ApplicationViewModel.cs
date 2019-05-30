@@ -94,14 +94,20 @@ namespace training
         }
 
         #region ctors VM
-        public ApplicationViewModel()       // deafault constructor of VM
-        {
-        }
-
         public ApplicationViewModel(IDialogService dialogService, IFileService fileService)       // deafault constructor of VM
         {
             this.dialogService = dialogService;
             this.fileService = fileService;
+
+            game = new Game();
+        }
+
+        public ApplicationViewModel(IDialogService dialogService, IFileService fileService, string gamePath)       // deafault constructor of VM
+        {
+            this.dialogService = dialogService;
+            this.fileService = fileService;
+
+
         }
         #endregion  
 
