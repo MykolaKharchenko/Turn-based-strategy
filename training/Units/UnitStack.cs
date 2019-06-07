@@ -28,6 +28,13 @@ namespace training.Units
             get { return stackSize; }
             set { stackSize = value; }
         }
+
+        public static Random rnd = new Random();
+        public static int GetRandomStackSize()
+        {
+            return rnd.Next(5, 20);
+        }
+
     }
 
     public class Archers : IUnitStack

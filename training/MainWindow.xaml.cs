@@ -28,7 +28,10 @@ namespace training
             InitializeComponent();
 
             // must me staied only one DataContext  !!
-            DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
+
+            DataContext = StartWindow.DataContextProperty;
+
+            //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
             //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
         }
     }

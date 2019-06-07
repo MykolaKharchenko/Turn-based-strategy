@@ -99,7 +99,18 @@ namespace training
             this.dialogService = dialogService;
             this.fileService = fileService;
 
-            game = new Game();
+            game = new Game()
+            {
+                PlayerLeft = new Player()
+                {
+                    Archers = new Units.IUnitStack()
+                },
+                PlayerRight = new Player()
+                {
+
+                },
+                PathAddress = "" 
+            };
         }
 
         public ApplicationViewModel(IDialogService dialogService, IFileService fileService, string gamePath)       // deafault constructor of VM

@@ -56,10 +56,10 @@ namespace training
         //  new palyer
         public Player()
         {
-            //this.Archers.StackSize = Services.GameDrive.GetRandomStackSize();
-            //this.Swordmen.StackSize = Services.GameDrive.GetRandomStackSize();
-            //this.Peasants.StackSize = Services.GameDrive.GetRandomStackSize();
-
+            Archers = new IUnitStack() as Archers;
+            this.Archers.StackSize = IUnitStack.GetRandomStackSize();
+            this.Swordmen.StackSize = IUnitStack.GetRandomStackSize();
+            this.Peasants.StackSize = IUnitStack.GetRandomStackSize();
         }
 
         // existing palyer  
