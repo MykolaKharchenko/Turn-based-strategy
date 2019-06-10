@@ -25,6 +25,7 @@ namespace Sandbox.UnitStack
         {
             SkillName = "Marshes";
             this.stackSpeed *= 2;
+            TimeoutToRefreshSkill = 3;
         }
     }
 }

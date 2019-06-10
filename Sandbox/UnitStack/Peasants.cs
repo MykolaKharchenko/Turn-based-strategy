@@ -24,6 +24,7 @@ namespace Sandbox.UnitStack
         {
             SkillName = "Trenshes";
             targetUnitStack.DefensePoints += 2;
+            TimeoutToRefreshSkill = 3;
         }
     }
 }

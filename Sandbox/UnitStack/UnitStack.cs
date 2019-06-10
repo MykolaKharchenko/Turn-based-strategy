@@ -58,6 +58,7 @@ namespace Sandbox.UnitStack
             {
                 SpecialSkill(targetUnitStack,bf);
             }
+            TimeoutToRefreshSkill--;
         }
         public virtual void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
         {
