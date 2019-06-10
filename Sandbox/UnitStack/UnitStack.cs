@@ -13,13 +13,15 @@ namespace Sandbox.UnitStack
         public string Name = "";     //  TypesImagePath
         Random rnd = new Random();
         bool IsActive = false;
-               
+
         public int totalHP;
-        public int totalDP;
         public int stackSpeed;
         public int stackSize;
         public int HP;
-        public int DP;
+        public int OffensivePoints;
+        public int DefensePoints;
+        public string SkillName { get; set; }
+        public int TimeoutToRefreshSkill = 0;
 
         public UnitStack()
         {
@@ -28,18 +30,38 @@ namespace Sandbox.UnitStack
 
         public void GetDamage(UnitStack enemy = null)
         {
-            //HandleDamage(this.totalDP,enemy);
-            HandleDamage(this.stackSize*this.DP, enemy);
+            HandleDamage(this.stackSize * this.OffensivePoints, enemy);
         }
 
         public void HandleDamage(int damage, UnitStack enemy = null)
         {
-            Console.WriteLine(this.Name + " hit " + damage + " points to "+ enemy.Name);
-            int wouded  = damage / enemy.HP;
-            Console.WriteLine(enemy.Name + " lose " + wouded + " units");
-            //enemy.stackSize = (enemy.totalHP-damage)/enemy.HP+1;
-            enemy.stackSize -= wouded;
-            enemy.totalHP -= damage;
+            int defense = this.stackSize * this.DefensePoints;
+            int diedUnits = damage / enemy.HP;
+            Console.WriteLine(this.Name + " hit " + (damage-defense) + " points to " + enemy.Name);
+            Console.WriteLine(enemy.Name + " lose " + diedUnits + " units");
+            if ((enemy.totalHP - damage) % enemy.HP != 0)
+                enemy.stackSize = (enemy.totalHP - damage) / enemy.HP + 1;
+            else
+                enemy.stackSize = (enemy.totalHP - damage) / enemy.HP;
+            enemy.totalHP -= damage >= defense ? damage - defense : 1;
         }
+
+        public void Move(Battlefield bf = null)
+        {
+        }
+
+        public void AbilitySpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        {
+            if (TimeoutToRefreshSkill > 0)
+                return;
+            else
+            {
+                SpecialSkill(targetUnitStack,bf);
+            }
+        }
+        public virtual void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        {
+        }
+
     }
 }

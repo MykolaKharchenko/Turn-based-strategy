@@ -57,9 +57,9 @@ namespace training
         public Player()
         {
             Archers = new IUnitStack() as Archers;
-            this.Archers.StackSize = IUnitStack.GetRandomStackSize();
-            this.Swordmen.StackSize = IUnitStack.GetRandomStackSize();
-            this.Peasants.StackSize = IUnitStack.GetRandomStackSize();
+            //this.Archers.StackSize = IUnitStack.GetRandomStackSize();
+            //this.Swordmen.StackSize = IUnitStack.GetRandomStackSize();
+            //this.Peasants.StackSize = IUnitStack.GetRandomStackSize();
         }
 
         // existing palyer  

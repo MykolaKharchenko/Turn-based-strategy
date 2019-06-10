@@ -11,11 +11,20 @@ namespace Sandbox.UnitStack
         public Archers() : base()
         {
             this.totalHP = this.stackSize * Config.ArcherHP;
-            this.totalDP = this.stackSize * Config.ArcherDP;
             this.stackSpeed = Config.ArcherSpeed;
             this.Name = "Archer";
             this.HP = 50;
-            this.DP = 7;
+            this.OffensivePoints = 7;
+            this.DefensePoints = 4;
+        }
+        public void Move(Battlefield bf)
+        {
+        }
+        public override void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        {
+            SkillName = "Double Shoot";
+            OffensivePoints *= 2;
+            TimeoutToRefreshSkill= 3;
         }
     }
 }
