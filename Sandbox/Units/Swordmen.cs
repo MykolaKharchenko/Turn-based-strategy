@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox.Unit
 {
-    public class Swordmen :UnitStack
+    public class Swordmen :Unit
     {
         public Swordmen() : base()
         {
@@ -21,7 +21,7 @@ namespace Sandbox.Unit
         public void Move(Battlefield bf)
         {
         }
-        public override void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             SkillName = "Marshes";
             this.stackSpeed *= 2;

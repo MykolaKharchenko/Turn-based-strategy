@@ -38,19 +38,27 @@ namespace Sandbox
             //Console.WriteLine($"Main {DateTime.Now.TimeOfDay}");
             //Console.WriteLine(Singleton.text);
 
+            var s = new PlayerSb();
+            
+            Console.ReadKey();
+
+            s.archy.SpecialSkill();
+            var ss = s.archy.GetUnitSize();
+            
+
             GameSb game = new GameSb();
-            game.StartGame();
+            //game.StartGame();
 
             Console.WriteLine("===== Player 1 =====");
-            Console.WriteLine("Palyer1 Archers= "+game.p1.Archers.stackSize);
-            Console.WriteLine("Palyer1 Swordmen= "+game.p1.Swordmen.stackSize);
-            Console.WriteLine("Palyer1 Peasants= "+game.p1.Peasants.stackSize);
+            Console.WriteLine("Palyer1 Archers= "+ game.p1.archy.GetUnitSize().ToString());
+            Console.WriteLine("Palyer1 Swordmen= "+game.p1.wardy.GetUnitSize().ToString());
+            Console.WriteLine("Palyer1 Peasants= "+game.p1.pussy.GetUnitSize().ToString());
 
             Console.WriteLine("===== Player 2 =====");
-            Console.WriteLine("Palyer2 Archers= " + game.p2.Archers.stackSize);
-            Console.WriteLine("Palyer2 Swordmen= " + game.p2.Swordmen.stackSize);
-            Console.WriteLine("Palyer2 Peasants= " + game.p2.Peasants.stackSize);
-                       
+            Console.WriteLine("Palyer2 Archers= " + game.p2.archy.GetUnitSize().ToString());
+            Console.WriteLine("Palyer2 Swordmen= " + game.p2.wardy.GetUnitSize().ToString());
+            Console.WriteLine("Palyer2 Peasants= " + game.p2.pussy.GetUnitSize().ToString());
+
 
             var archy = new Archers();
             var wardy = new Swordmen();

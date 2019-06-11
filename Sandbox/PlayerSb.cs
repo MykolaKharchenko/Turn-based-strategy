@@ -9,16 +9,17 @@ namespace Sandbox
 {
     public class PlayerSb //: IEnumerable
     {
-        public UnitStack Archers;
-        public UnitStack Peasants;
-        public UnitStack Swordmen;
+        public IUnit archy;
+        public IUnit wardy;
+        public IUnit pussy;
+
         public bool IsTurning = false;
 
         public PlayerSb()
         {
-            this.Archers = new Archers();
-            this.Swordmen = new Swordmen();
-            this.Peasants = new Peasants();
-        }
+            this.archy = new Archers();
+            this.wardy = new Swordmen();
+            this.pussy = new Peasants();
+        }   
     }
 }

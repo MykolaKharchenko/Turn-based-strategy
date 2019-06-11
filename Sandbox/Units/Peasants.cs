@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox.Unit
 {
-    public class Peasants :UnitStack
+    public class Peasants :Unit
     {
         public Peasants()
         {
@@ -20,7 +20,7 @@ namespace Sandbox.Unit
         public void Move(Battlefield bf)
         {
         }
-        public override void SpecialSkill(UnitStack targetUnitStack, Battlefield bf = null)
+        public override void SpecialSkill(Unit targetUnitStack, Battlefield bf = null)
         {
             SkillName = "Trenshes";
             targetUnitStack.DefensePoints += 2;

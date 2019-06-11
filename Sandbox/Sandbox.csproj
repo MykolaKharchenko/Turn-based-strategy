@@ -46,14 +46,14 @@
     <Compile Include="Battlefield.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="GameSb.cs" />
-    <Compile Include="IAction.cs" />
+    <Compile Include="IUnit.cs" />
     <Compile Include="PlayerSb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unit\Archers.cs" />
-    <Compile Include="Unit\Peasants.cs" />
-    <Compile Include="Unit\Swordmen.cs" />
-    <Compile Include="Unit\UnitStack.cs" />
+    <Compile Include="Units\Archers.cs" />
+    <Compile Include="Units\Peasants.cs" />
+    <Compile Include="Units\Swordmen.cs" />
+    <Compile Include="Units\Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

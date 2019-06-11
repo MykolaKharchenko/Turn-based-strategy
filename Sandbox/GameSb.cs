@@ -26,34 +26,34 @@ namespace Sandbox
 
         public void StartGame()
         {
-            if (p1.Archers.stackSize != p2.Archers.stackSize)
+            if (p1.archy.GetUnitSize()!= p2.archy.GetUnitSize())
             {
-                if (p1.Archers.stackSize > p2.Archers.stackSize)
+                if (p1.archy.GetUnitSize() > p2.archy.GetUnitSize())
                     p1.IsTurning = true;
                 else
                     p2.IsTurning = true;
             }
             else
             {
-                if (p1.Swordmen.stackSize != p2.Swordmen.stackSize)
+                if (p1.wardy.GetUnitSize()!= p2.wardy.GetUnitSize())
                 {
-                    if (p1.Swordmen.stackSize > p2.Swordmen.stackSize)
+                    if (p1.wardy.GetUnitSize() > p2.wardy.GetUnitSize())
                         p1.IsTurning = true;
                     else
                         p2.IsTurning = true;
                 }
                 else
                 {
-                    if (p1.Peasants.stackSize != p2.Peasants.stackSize)
+                    if (p1.pussy.GetUnitSize() != p2.pussy.GetUnitSize())
                     {
-                        if (p1.Peasants.stackSize > p2.Peasants.stackSize)
+                        if (p1.pussy.GetUnitSize() > p2.pussy.GetUnitSize())
                             p1.IsTurning = true;
                         else
                             p2.IsTurning = true;
                     }
                     else
                     {
-                        if (p1.Peasants.stackSize+ p1.Swordmen.stackSize+ p1.Archers.stackSize > p2.Peasants.stackSize + p2.Swordmen.stackSize + p2.Archers.stackSize)
+                        if (p1.archy.GetUnitSize() + p1.wardy.GetUnitSize() + p1.pussy.GetUnitSize() > p2.archy.GetUnitSize() + p2.wardy.GetUnitSize() + p2.pussy.GetUnitSize())
                             p1.IsTurning = true;
                         else
                             p2.IsTurning = true;
@@ -62,10 +62,9 @@ namespace Sandbox
             }
         }
 
-        public void Step(Unit.UnitStack targetUnitStack = null, Battlefield bf = null)
+        public void Step(Unit.Unit targetUnitStack = null, Battlefield bf = null)
         {            
-            p1.Archers.GetDamage(p2.Peasants);
-            //IAction x = new 
+            p1.archy.GetDamage();
         }
     }
 }

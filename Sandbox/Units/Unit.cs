@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox.Unit
 {
-    public abstract class UnitStack : IAction
+    public abstract class Unit : IUnit
     {
         // public int prioritet = 0|| 1 || 2 
         PlayerSb playerSB;
@@ -23,22 +23,22 @@ namespace Sandbox.Unit
         public string SkillName { get; set; }
         public int TimeoutToRefreshSkill = 0;
 
-        public UnitStack()
+        public Unit()
         {
             Random s = new Random();
             this.stackSize = s.Next(5, 51);
         }
 
-        public void GetDamage(UnitStack enemy = null)
+        public void GetDamage(Unit enemy = null)
         {
             HandleDamage(this.stackSize * this.OffensivePoints, enemy);
         }
 
-        public void HandleDamage(int damage, UnitStack enemy = null)
+        public void HandleDamage(int damage, Unit enemy = null)
         {
             int defense = this.stackSize * this.DefensePoints;
             int diedUnits = damage / enemy.HP;
-            Console.WriteLine(this.Name + " hit " + (damage-defense) + " points to " + enemy.Name);
+            Console.WriteLine(this.Name + " hit " + (damage - defense) + " points to " + enemy.Name);
             Console.WriteLine(enemy.Name + " lose " + diedUnits + " units");
             if ((enemy.totalHP - damage) % enemy.HP != 0)
                 enemy.stackSize = (enemy.totalHP - damage) / enemy.HP + 1;
@@ -51,19 +51,22 @@ namespace Sandbox.Unit
         {
         }
 
-        public void AbilitySpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        public void AbilitySpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             if (TimeoutToRefreshSkill > 0)
                 return;
             else
             {
-                SpecialSkill(targetUnitStack,bf);
+                SpecialSkill(targetUnitStack, bf);
             }
             TimeoutToRefreshSkill--;
         }
-        public virtual void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        public virtual void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
         }
-
+        public int GetUnitSize()
+        {
+            return this.stackSize;
+        }
     }
 }

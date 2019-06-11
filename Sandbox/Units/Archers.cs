@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandbox.Unit
 {
-    public class Archers : UnitStack
+    public class Archers : Unit
     {
         public Archers() : base()
         {
@@ -20,7 +20,7 @@ namespace Sandbox.Unit
         public void Move(Battlefield bf)
         {
         }
-        public override void SpecialSkill(UnitStack targetUnitStack = null, Battlefield bf = null)
+        public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             SkillName = "Double Shoot";
             OffensivePoints *= 2;
