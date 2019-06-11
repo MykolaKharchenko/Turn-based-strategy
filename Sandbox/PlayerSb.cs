@@ -13,6 +13,8 @@ namespace Sandbox
         public IUnit wardy;
         public IUnit pussy;
 
+        public List<IUnit> UnitStacks; 
+
         public bool IsTurning = false;
 
         public PlayerSb()
@@ -20,6 +22,12 @@ namespace Sandbox
             this.archy = new Archers();
             this.wardy = new Swordmen();
             this.pussy = new Peasants();
+
+            UnitStacks = new List<IUnit>()
+            {
+
+            };
+
         }   
     }
 }

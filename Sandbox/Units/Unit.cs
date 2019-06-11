@@ -12,6 +12,7 @@ namespace Sandbox.Unit
         PlayerSb playerSB;
         public string Name = "";     //  TypesImagePath
         //Random rnd = new Random();
+        bool IsAlive = false;
         bool IsActive = false;
 
         public int totalHP;
@@ -23,10 +24,14 @@ namespace Sandbox.Unit
         public string SkillName { get; set; }
         public int TimeoutToRefreshSkill = 0;
 
+        public int UnitSize { get { return stackSize; } }
+
         public Unit()
         {
             Random s = new Random();
             this.stackSize = s.Next(5, 51);
+            if (this.stackSize > 0)
+                IsAlive = true;
         }
 
         public void GetDamage(Unit enemy = null)
@@ -61,12 +66,9 @@ namespace Sandbox.Unit
             }
             TimeoutToRefreshSkill--;
         }
+
         public virtual void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
-        }
-        public int GetUnitSize()
-        {
-            return this.stackSize;
         }
     }
 }

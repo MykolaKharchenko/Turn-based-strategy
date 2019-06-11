@@ -14,7 +14,7 @@ namespace Sandbox
 
         void SpecialSkill(Unit.Unit targetUnitStack = null, Battlefield bf = null);
 
-        int GetUnitSize();
+        int UnitSize { get; }
 
     }
 }
