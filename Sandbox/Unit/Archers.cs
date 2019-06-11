@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sandbox.UnitStack
+namespace Sandbox.Unit
 {
     public class Archers : UnitStack
     {

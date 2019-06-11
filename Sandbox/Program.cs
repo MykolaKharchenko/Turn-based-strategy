@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Sandbox.UnitStack;
+using Sandbox.Unit;
 
 namespace Sandbox
 {
@@ -38,7 +38,19 @@ namespace Sandbox
             //Console.WriteLine($"Main {DateTime.Now.TimeOfDay}");
             //Console.WriteLine(Singleton.text);
 
+            GameSb game = new GameSb();
+            game.StartGame();
 
+            Console.WriteLine("===== Player 1 =====");
+            Console.WriteLine("Palyer1 Archers= "+game.p1.Archers.stackSize);
+            Console.WriteLine("Palyer1 Swordmen= "+game.p1.Swordmen.stackSize);
+            Console.WriteLine("Palyer1 Peasants= "+game.p1.Peasants.stackSize);
+
+            Console.WriteLine("===== Player 2 =====");
+            Console.WriteLine("Palyer2 Archers= " + game.p2.Archers.stackSize);
+            Console.WriteLine("Palyer2 Swordmen= " + game.p2.Swordmen.stackSize);
+            Console.WriteLine("Palyer2 Peasants= " + game.p2.Peasants.stackSize);
+                       
 
             var archy = new Archers();
             var wardy = new Swordmen();

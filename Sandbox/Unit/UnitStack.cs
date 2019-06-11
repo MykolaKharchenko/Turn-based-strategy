@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sandbox.UnitStack
+namespace Sandbox.Unit
 {
-    public abstract class UnitStack
+    public abstract class UnitStack : IAction
     {
         // public int prioritet = 0|| 1 || 2 
         PlayerSb playerSB;
         public string Name = "";     //  TypesImagePath
-        Random rnd = new Random();
+        //Random rnd = new Random();
         bool IsActive = false;
 
         public int totalHP;
@@ -25,7 +25,8 @@ namespace Sandbox.UnitStack
 
         public UnitStack()
         {
-            this.stackSize = rnd.Next(5, 51);
+            Random s = new Random();
+            this.stackSize = s.Next(5, 51);
         }
 
         public void GetDamage(UnitStack enemy = null)
