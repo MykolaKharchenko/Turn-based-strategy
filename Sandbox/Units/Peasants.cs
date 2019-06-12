@@ -8,18 +8,22 @@ namespace Sandbox.Unit
 {
     public class Peasants :Unit
     {
-        public Peasants()
+        public Peasants(): base()
         {
-            this.totalHP = this.stackSize * Config.PeasantHP;
-            this.stackSpeed = Config.PeasantSpeed;
-            this.Name = "Peasant";
-            this.HP = 30;
-            this.OffensivePoints = 2;
-            this.DefensePoints = 1;
+            totalHP = this.stackSize * Config.PeasantHP;
+            stackSpeed = Config.PeasantSpeed;
+            Name = "Peasant";
+            HP = 30;
+            OffensivePoints = 2;
+            DefensePoints = 1;
+            Random s = new Random();
+            stackSize = s.Next(51, 251);
         }
+
         public void Move(Battlefield bf)
         {
         }
+
         public override void SpecialSkill(Unit targetUnitStack, Battlefield bf = null)
         {
             SkillName = "Trenshes";

@@ -10,13 +10,15 @@ namespace Sandbox.Unit
     {
         public Swordmen() : base()
         {
-            this.totalHP = this.stackSize * Config.SwordmanHP;
-            this.stackSpeed = Config.SwordmanSpeed;
-            this.Name = "Swordmen";
-            this.HP = 100;
-            this.OffensivePoints = 5;
-            this.DefensePoints = 8;
-    }
+            totalHP = this.stackSize * Config.SwordmanHP;
+            stackSpeed = Config.SwordmanSpeed;
+            Name = "Swordmen";
+            HP = 100;
+            OffensivePoints = 5;
+            DefensePoints = 8;
+            Random s = new Random();
+            stackSize = s.Next(5, 51);
+        }
 
         public void Move(Battlefield bf)
         {

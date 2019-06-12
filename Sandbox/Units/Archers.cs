@@ -10,12 +10,14 @@ namespace Sandbox.Unit
     {
         public Archers() : base()
         {
-            this.totalHP = this.stackSize * Config.ArcherHP;
-            this.stackSpeed = Config.ArcherSpeed;
-            this.Name = "Archer";
-            this.HP = 50;
-            this.OffensivePoints = 7;
-            this.DefensePoints = 4;
+            totalHP = this.stackSize * Config.ArcherHP;
+            stackSpeed = Config.ArcherSpeed;
+            Name = "Archer";
+            HP = 50;
+            OffensivePoints = 7;
+            DefensePoints = 4;
+            Random s = new Random();
+            stackSize = s.Next(10, 101);
         }
         public void Move(Battlefield bf)
         {

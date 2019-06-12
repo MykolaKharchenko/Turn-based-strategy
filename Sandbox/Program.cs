@@ -40,13 +40,18 @@ namespace Sandbox
 
             //var s = new PlayerSb();
 
-            //Console.ReadKey();
+            ////Console.ReadKey();
 
-            //s.archy.SpecialSkill();
-            //var ss = s.archy.UnitSize;
+            ////s.archy.SpecialSkill();
+            ////var ss = s.archy.UnitSize;
 
 
-            PlayerSb player = new PlayerSb();
+            //GameSb g1 = new GameSb();
+
+            //PlayerSb player = new PlayerSb();
+
+
+
 
 
 

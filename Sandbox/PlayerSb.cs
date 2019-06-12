@@ -19,15 +19,14 @@ namespace Sandbox
 
         public PlayerSb()
         {
-            this.archy = new Archers();
-            this.wardy = new Swordmen();
-            this.pussy = new Peasants();
+            archy = new Archers();
+            wardy = new Swordmen();
+            pussy = new Peasants();
 
             UnitStacks = new List<IUnit>()
             {
-
+                archy,wardy,pussy
             };
-
         }   
     }
 }
