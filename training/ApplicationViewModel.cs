@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using training.Services;
-using Sandbox;
+using training.Models;
 
 namespace training
 {
@@ -101,16 +101,15 @@ namespace training
             this.fileService = fileService;
 
             game = new Game()
-            {
+            {                
                 PlayerLeft = new Player()
                 {
-                    Archers = new Units.IUnitStack()
                 },
                 PlayerRight = new Player()
                 {
 
                 },
-                PathAddress = "" 
+                pathGameAddress = "" 
             };
         }
 
