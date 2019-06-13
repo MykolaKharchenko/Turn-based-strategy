@@ -12,6 +12,13 @@ namespace Sandbox
         public IUnit archy;
         public IUnit wardy;
         public IUnit pussy;
+        public int queue;
+
+        public void RevolveQueue()
+        {
+           // this.UnitStacks
+            //UnitStacks.Sort
+        }
 
         public List<IUnit> UnitStacks; 
 
@@ -25,8 +32,13 @@ namespace Sandbox
 
             UnitStacks = new List<IUnit>()
             {
-                archy,wardy,pussy
+                 new Archers(),new Swordmen(),new Peasants()
             };
-        }   
+        }
+
+        public PlayerSb(string dataPath)
+        {
+            // must be written..
+        }
     }
 }

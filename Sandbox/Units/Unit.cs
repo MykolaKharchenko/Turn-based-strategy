@@ -10,8 +10,6 @@ namespace Sandbox.Unit
     {
         PlayerSb playerSB;
         public string Name = "";     //  TypesImagePath
-        //bool IsAlive = false;  // alive = true ; died = false
-        bool IsActive = false;
 
         public int totalHP;
         public int stackSpeed;
@@ -25,6 +23,7 @@ namespace Sandbox.Unit
         
         public int UnitSize { get { return stackSize; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
+        public bool IsActive { get;  }
 
         public Unit()
         {
