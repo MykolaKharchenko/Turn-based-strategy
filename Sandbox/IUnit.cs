@@ -16,5 +16,8 @@ namespace Sandbox
 
         int UnitSize { get; }
 
+        bool IsAlive { get; }
+        bool IsActive { get; }
+
     }
 }

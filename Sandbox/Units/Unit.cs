@@ -8,11 +8,9 @@ namespace Sandbox.Unit
 {
     public abstract class Unit : IUnit
     {
-        // public int prioritet = 0|| 1 || 2 
         PlayerSb playerSB;
         public string Name = "";     //  TypesImagePath
-        //Random rnd = new Random();
-        bool IsAlive = false;
+        //bool IsAlive = false;  // alive = true ; died = false
         bool IsActive = false;
 
         public int totalHP;
@@ -23,15 +21,15 @@ namespace Sandbox.Unit
         public int DefensePoints;
         public string SkillName { get; set; }
         public int TimeoutToRefreshSkill = 0;
-
+        protected string _imagePath;
+        
         public int UnitSize { get { return stackSize; } }
+        public bool IsAlive { get { return (stackSize) > 0; } }
 
         public Unit()
         {
             Random s = new Random();
-            this.stackSize = s.Next(5, 51);
-            if (this.stackSize > 0)
-                IsAlive = true;
+            this.stackSize = s.Next(5, 51);      
         }
 
         public void GetDamage(Unit enemy = null)
