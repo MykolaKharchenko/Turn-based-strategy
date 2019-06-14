@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:training"
         mc:Ignorable="d"
-        Title="StartGame" Height="450" Width="360">
-    <Grid>
+        Title="StartGame" Height="480" Width="360">
+    <Grid Background="DarkGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*" />
             <RowDefinition />
@@ -15,6 +15,7 @@
             <ColumnDefinition Width="0.4*"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
 
         <TextBlock Grid.Column="0"  Grid.Row="0" Grid.ColumnSpan="2" 
                    Background="Bisque"
@@ -30,5 +31,32 @@
             <Button Margin="0,10" Command="{Binding ExitAppCommand}" Content="Exit" Background="LightCoral" Height="50"/>
         </StackPanel>
 
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\sword.png"  
+               Grid.Column="1" HorizontalAlignment="Left" 
+               Height="27" Width="29" 
+               Margin="220,29,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="4.45,5.65"/>
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\star.png"  
+               Grid.Column="1" HorizontalAlignment="Left" 
+               Height="27" Width="29" 
+               Margin="184,29,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="4.45,5.65"/>
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\running.png"  
+               Grid.Column="1" HorizontalAlignment="Left" 
+               Height="27" Width="29" 
+               Margin="145,29,0,0" Grid.Row="1" 
+               VerticalAlignment="Top" 
+               RenderTransformOrigin="4.45,5.65"/>
+
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\DefaultUnits\Creature_Archer.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="9,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="65"/>
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\ActiveUnits\Creature_ArcherActive.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="79,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60" RenderTransformOrigin="-0.5,0.75"/>
+
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\DefaultUnits\Creature_Peasant.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="4,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\ActiveUnits\Creature_PeasantActive.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="79,118,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\DefaultUnits\Creature_Swordsman.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="4,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
+        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\ActiveUnits\Creature_SwordsmanActive.gif" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="74,223,0,0" Grid.Row="1" VerticalAlignment="Top" Width="60"/>
     </Grid>
 </Window>
