@@ -17,7 +17,10 @@ namespace training.Models.Units
         public int DefensePoints;
         public string SkillName { get; set; }
         public int TimeoutToRefreshSkill = 0;
-        protected string _imagePath;
+
+        public string attackIconPath = @"Images\sword.png";
+        public string moveIconPath = @"Images\running.png";
+        public string spesial_skillIconPath = @"Images\star.png";
 
         public int UnitSize { get { return stackSize; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
@@ -27,6 +30,8 @@ namespace training.Models.Units
         {
             Random s = new Random();
             this.stackSize = s.Next(5, 51);
+            activeUnitImagePath = "";
+            passiveUnitImagePath = "";
         }
 
         public void GetDamage(Unit enemy = null)

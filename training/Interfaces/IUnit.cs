@@ -14,6 +14,9 @@ namespace training.Interfaces
         bool IsAlive { get; }
         bool IsActive { get; }
 
+        string activeUnitImagePath { get; set; }
+        string passiveUnitImagePath { get; set; }
+
         void GetDamage(Unit enemy = null);
         void Move(Battlefield bf = null);
         void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null);

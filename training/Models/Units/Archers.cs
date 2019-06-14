@@ -18,10 +18,12 @@ namespace training.Models.Units
             DefensePoints = 4;
             Random s = new Random();
             stackSize = s.Next(10, 101);
+            activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
+            passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
         }
-        public void Move(Battlefield bf)
-        {
-        }
+        //public void Move(Battlefield bf)
+        //{
+        //}
         public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             SkillName = "Double Shoot";

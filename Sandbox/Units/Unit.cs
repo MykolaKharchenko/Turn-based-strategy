@@ -8,7 +8,6 @@ namespace Sandbox.Unit
 {
     public abstract class Unit : IUnit
     {
-        PlayerSb playerSB;
         public string Name = "";     //  TypesImagePath
 
         public int totalHP;

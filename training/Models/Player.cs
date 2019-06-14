@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using training.Models.Units;
 
 namespace training.Models
 {
-    public class Player //: IEnumerable
+    public class Player :INotifyPropertyChanged
     {
         public IUnit archers;
         public IUnit swordsmen;
@@ -26,6 +27,12 @@ namespace training.Models
         public Player(string dataPath)
         {
             // must be written..
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));         
         }
     }
 }

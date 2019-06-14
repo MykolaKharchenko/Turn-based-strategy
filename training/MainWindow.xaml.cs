@@ -28,9 +28,16 @@ namespace training
         {
             InitializeComponent();
 
+
+
+
+
             // must me staied only one DataContext  !!
 
             //DataContext = StartWindow.DataContextProperty;
+            DataContext = new ViewModel.GameDriveViewModel();
+
+
             DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
             //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
         }

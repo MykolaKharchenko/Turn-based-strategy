@@ -40,8 +40,8 @@
 
         <!--<StackPanel x:Name="playerLeft" Grid.Row="1" />-->
 
-        <TreeView x:Name="playerLeft" Grid.Row="1" ItemsSource="{Binding Games}">
-            
+        <TreeView x:Name="playerLeft" Grid.Row="1" ItemsSource="{Binding Game.PlayerLeft}">
+            <Image Source="{Binding PlayerLeft.}"></Image>
         </TreeView>
 
 

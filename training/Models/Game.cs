@@ -66,7 +66,9 @@ namespace training.Models
 
         public int GetTotalPlayerUnitSize(Player player)
         {
-            return 0; // player.archy.UnitSize + player.wardy.UnitSize + player.pussy.UnitSize;
+
+            var s = PlayerLeft.archers.activeUnitImagePath;
+            return  player.archers.UnitSize + player.swordsmen.UnitSize + player.peasants.UnitSize;
         }
     }
 }
