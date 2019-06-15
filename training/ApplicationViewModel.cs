@@ -100,6 +100,9 @@ namespace training
             this.dialogService = dialogService;
             this.fileService = fileService;
 
+            var game1 = new Game();
+            //string ss = game1.PlayerLeft.archers.activeUnitImagePath;
+
             game = new Game()
             {                
                 PlayerLeft = new Player()

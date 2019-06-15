@@ -18,8 +18,8 @@ namespace training.Models.Units
             DefensePoints = 8;
             Random s = new Random();
             stackSize = s.Next(5, 51);
-            activeUnitImagePath = @"Images\ActiveUnits\Creature_SwordsmanActive.gif";
-            passiveUnitImagePath = @"Images\DefaultUnits\Creature_Swordsman.gif";
+            _activeUnitImagePath = @"Images\ActiveUnits\Creature_SwordsmanActive.gif";
+            _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Swordsman.gif";
         }
 
         public void Move(Battlefield bf)

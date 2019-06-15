@@ -9,6 +9,7 @@ namespace training.Models.Units
 {
     public class Archers : Unit
     {
+
         public Archers() : base()
         {
             totalHP = this.stackSize * StaticConfig.ArcherHP;
@@ -18,8 +19,9 @@ namespace training.Models.Units
             DefensePoints = 4;
             Random s = new Random();
             stackSize = s.Next(10, 101);
-            activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
-            passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
+            _activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
+            _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
+
         }
         //public void Move(Battlefield bf)
         //{

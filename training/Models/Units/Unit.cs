@@ -21,10 +21,15 @@ namespace training.Models.Units
         public string attackIconPath = @"Images\sword.png";
         public string moveIconPath = @"Images\running.png";
         public string spesial_skillIconPath = @"Images\star.png";
-
+        protected string _activeUnitImagePath ="";
+        protected string _passiveUnitImagePath="";
+            
         public int UnitSize { get { return stackSize; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
         public bool IsActive { get; }   //  !!!!  i don't any solution
+
+        public string passiveUnitImagePath { get { return _passiveUnitImagePath; }  set { value = _passiveUnitImagePath; } }
+        public string activeUnitImagePath { get { return _activeUnitImagePath; } set { value = _activeUnitImagePath; } }
 
         public Unit()
         {
