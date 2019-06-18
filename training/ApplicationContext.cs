@@ -11,7 +11,7 @@ namespace training
     public class ApplicationContext: DbContext
     {
         public DbSet<Game> Games { get; set; }
-        public DbSet<Player> Players { get; set; }
+        //public DbSet<Player> Players { get; set; }
 
         public ApplicationContext() : base("DefaultConnection")
         {

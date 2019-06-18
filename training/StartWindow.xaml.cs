@@ -13,31 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using training.Models;
 using training.Services;
+using training.ViewModel;
 
 namespace training
 {
-    /// <summary>
-    /// Логика взаимодействия для StartWindow.xaml
-    /// </summary>
     public partial class StartWindow : Window
     {
-        public Game game { get; private set; }
-
         public StartWindow()
         {
             InitializeComponent();
-            DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
+            DataContext = new GameMenuViewModel(new DefaultDialogService(), new JsonFileService());
         }
-
-        //public StartWindow(Game g)
-        //{
-        //    InitializeComponent();
-        //    game = g;
-        //    this.DataContext = game;
-        //}
-
-        //
-        // here must be  add commands for buttons
-        //
     }
 }

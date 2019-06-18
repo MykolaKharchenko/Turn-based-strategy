@@ -13,7 +13,6 @@ namespace training
         private Func<object, bool> canExecute;
 
         #region Override class's costructor
-
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             this.execute = execute;

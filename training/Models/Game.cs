@@ -8,7 +8,7 @@ namespace training.Models
 {
     public class Game
     {
-        private int gameId;
+        //private int gameId;
         public string pathGameAddress;
 
         public Player PlayerLeft;

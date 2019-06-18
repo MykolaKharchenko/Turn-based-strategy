@@ -1,26 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using training.Services;
 using training.Models;
+using training.Services;
 
-namespace training
+namespace training.ViewModel
 {
-    public class ApplicationViewModel  // ViewModel
+    public class GameMenuViewModel : INotifyPropertyChanged
     {
         IFileService fileService;
         IDialogService dialogService;
 
         ApplicationContext db;
-        private Game game;
-        //public ObservableCollection<Player> Players { get; set; }          - must I use ObservableCollection for Game/Player/Unit ????
+        IEnumerable<Game> games;
+        public IEnumerable<Game> Games
+        {
+            get { return games; }
+            set
+            {
+                games = value;
+                OnPropertyChanged("Games");
+            }
+        }
 
-        #region StartWindow button processing
+        //must I use ObservableCollection for Game/Player/Unit ????
+
+        #region StartWindow button processing via commands
 
         RelayCommand newGameCommand;
         public RelayCommand NewGameCommand
@@ -71,7 +80,7 @@ namespace training
                     {
                         //  but in future this code's block will be rewrited
                         //  its here now only for reflection in UI
-                        if (this.game == null)          
+                        if (this.games == null)
                         {
                             dialogService.ShowMessage("Game isn't saved, do you realy want to leave this battle???");
 
@@ -83,55 +92,34 @@ namespace training
 
         #endregion
 
-        private Player selectedPlayer;
-        public Player SelectedPlayer
-        {
-            get { return selectedPlayer; }
-            set
-            {
-                selectedPlayer = value;
-                OnPropertyChanged("SelectedPlayer");
-            }
-        }
-
         #region ctors VM
-        public ApplicationViewModel(IDialogService dialogService, IFileService fileService)       // deafault constructor of VM
+        public GameMenuViewModel(IDialogService _dialogService, IFileService _fileService)       // default constructor of VM
         {
-            this.dialogService = dialogService;
-            this.fileService = fileService;
+            dialogService = _dialogService;
+            fileService = _fileService;
 
-            var game1 = new Game();
-            //string ss = game1.PlayerLeft.archers.activeUnitImagePath;
+            db = new ApplicationContext();
+            db.Games.Load();
+            Games = db.Games.Local.ToBindingList();
 
-            game = new Game()
-            {                
-                PlayerLeft = new Player()
-                {
-                },
-                PlayerRight = new Player()
-                {
+            //games = new Game()
+            //{
+            //    PlayerLeft = new Player()
+            //    {
+            //    },
+            //    PlayerRight = new Player()
+            //    {
 
-                },
-                pathGameAddress = "" 
-            };
+            //    },
+            //    pathGameAddress = ""
+            //};
         }
+        #endregion
 
-        public ApplicationViewModel(IDialogService dialogService, IFileService fileService, string gamePath)       // deafault constructor of VM
-        {
-            this.dialogService = dialogService;
-            this.fileService = fileService;
-
-
-        }
-        #endregion  
-
-        // implement INotifyPropertyChanged interface
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
-

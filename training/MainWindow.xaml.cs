@@ -14,31 +14,20 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using training.Services;
 using training.Models;
+using training.ViewModel;
 
 namespace training
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public Game Game { get; private set; }
-
         public MainWindow(Game _game)
         {
             InitializeComponent();
 
-
-
-
-
             // must me staied only one DataContext  !!
 
-            //DataContext = StartWindow.DataContextProperty;
-            DataContext = new ViewModel.GameDriveViewModel();
-
-
-            DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
+            DataContext = new GameDriveViewModel();
             //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
         }
     }

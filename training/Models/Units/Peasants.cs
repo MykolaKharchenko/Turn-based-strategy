@@ -22,10 +22,6 @@ namespace training.Models.Units
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Peasant.gif";
         }
 
-        public void Move(Battlefield bf)
-        {
-        }
-
         public override void SpecialSkill(Unit targetUnitStack, Battlefield bf = null)
         {
             SkillName = "Trenshes";

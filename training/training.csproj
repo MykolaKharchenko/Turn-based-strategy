@@ -94,6 +94,7 @@
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\GameDriveViewModel.cs" />
+    <Compile Include="ViewModel\GameMenuViewModel.cs" />
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
@@ -101,7 +102,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ApplicationViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

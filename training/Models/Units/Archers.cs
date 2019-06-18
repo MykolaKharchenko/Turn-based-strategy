@@ -21,11 +21,8 @@ namespace training.Models.Units
             stackSize = s.Next(10, 101);
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
-
         }
-        //public void Move(Battlefield bf)
-        //{
-        //}
+
         public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             SkillName = "Double Shoot";

@@ -22,9 +22,6 @@ namespace training.Models.Units
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Swordsman.gif";
         }
 
-        public void Move(Battlefield bf)
-        {
-        }
         public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
             SkillName = "Marshes";
