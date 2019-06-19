@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
@@ -15,19 +16,17 @@ namespace training.ViewModel
         IFileService fileService;
         IDialogService dialogService;
 
-        ApplicationContext db;
-        IEnumerable<Game> games;
-        public IEnumerable<Game> Games
+        public ObservableCollection<Game> Games;
+        private Game selectedGame;
+        public Game SelectedGame
         {
-            get { return games; }
+            get { return selectedGame; }
             set
             {
-                games = value;
-                OnPropertyChanged("Games");
+                selectedGame = value;
+                OnPropertyChanged("SelectedGame");
             }
         }
-
-        //must I use ObservableCollection for Game/Player/Unit ????
 
         #region StartWindow button processing via commands
 
@@ -56,18 +55,82 @@ namespace training.ViewModel
             get
             {
                 return loadGameCommand ??
-                (loadGameCommand = new RelayCommand((selectedGamePath) =>
+                (loadGameCommand = new RelayCommand((obj) =>
                 {
-                    if (selectedGamePath == null)
-                        return;
-                    string gamePath = selectedGamePath as string;
-                    Game vm_game = fileService.Open(gamePath);
+                    try
+                    {
+                        if (dialogService.OpenFileDialog() == true)
+                        {
+                            var game = fileService.Open(dialogService.FilePath);
+                            dialogService.ShowMessage("Файл открыт");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        dialogService.ShowMessage(ex.Message);
+                    }
 
-                    MainWindow mainWindow = new MainWindow(vm_game);
+                    //string gamePath = obj as string;
+                    //Game vm_game = fileService.Open(gamePath);
+                    //MainWindow mainWindow = new MainWindow(vm_game);
+                    
                     // must be added ....
-                }
-                ));
+                }));
             }
+        }
+        // команда открытия файла
+        //private RelayCommand openCommand;
+        //public RelayCommand OpenCommand
+        //{
+        //    get
+        //    {
+        //        return openCommand ??
+        //          (openCommand = new RelayCommand(obj =>
+        //          {
+        //              try
+        //              {
+        //                  if (dialogService.OpenFileDialog() == true)
+        //                  {
+        //                      var phones = fileService.Open(dialogService.FilePath);
+        //                      Games.Clear();
+        //                      foreach (var p in Games)
+        //                          Games.Add(p);
+        //                      dialogService.ShowMessage("Файл открыт");
+        //                  }
+        //              }
+        //              catch (Exception ex)
+        //              {
+        //                  dialogService.ShowMessage(ex.Message);
+        //              }
+        //          }));
+        //    }
+        //}
+
+        RelayCommand saveGameCommand;
+        public RelayCommand SaveGameCommand
+        {
+            get
+            {
+                return saveGameCommand ??
+                  (saveGameCommand = new RelayCommand(obj =>
+                  {
+                      try
+                      {
+                          SelectedGame = new Game();
+
+                          if (dialogService.SaveFileDialog() == true)
+                          {
+                              fileService.Save(dialogService.FilePath, SelectedGame);
+                              dialogService.ShowMessage("Файл сохранен");
+                          }
+                      }
+                      catch (Exception ex)
+                      {
+                          dialogService.ShowMessage(ex.Message);
+                      }
+                  }));
+            }
+
         }
 
         RelayCommand exitAppCommand;
@@ -80,10 +143,9 @@ namespace training.ViewModel
                     {
                         //  but in future this code's block will be rewrited
                         //  its here now only for reflection in UI
-                        if (this.games == null)
+                        if(true)//(SelectedGame != null)
                         {
-                            dialogService.ShowMessage("Game isn't saved, do you realy want to leave this battle???");
-
+                            dialogService.ShowMessage("Game isn't saved, do you realy want to leave this battle???");                            
                         }
                     }
                     ));
@@ -97,10 +159,6 @@ namespace training.ViewModel
         {
             dialogService = _dialogService;
             fileService = _fileService;
-
-            db = new ApplicationContext();
-            //db.Games.Load();
-            //Games = db.Games.Local.ToBindingList();
         }
         #endregion
 

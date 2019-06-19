@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +22,15 @@ namespace training.Services
         public static int ArcherSpeed = 4;
         public static int SwordmanSpeed = 3;
         public static int PeasantSpeed = 2;
+
+        public static string ConvertToString(object Obj)
+        { return JsonConvert.SerializeObject(Obj); }
+
+        public static Models.Player ConvertToObjectPlayer(string str)
+        { return JsonConvert.DeserializeObject<Models.Player>(str); }
+
+        public static Models.Battlefield ConvertToObjectBattlefield(string str)
+        { return JsonConvert.DeserializeObject<Models.Battlefield>(str); }
+
     }
 }

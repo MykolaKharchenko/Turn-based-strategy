@@ -9,6 +9,7 @@ namespace training.Models
 {
     public class Game : INotifyPropertyChanged
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public int GameId { get; set; }
 
         private string pathGameAddress;

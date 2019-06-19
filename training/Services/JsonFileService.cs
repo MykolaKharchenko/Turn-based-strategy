@@ -26,6 +26,8 @@ namespace training.Services
         public void Save(string _filename, Game _game)
         {
             DataContractJsonSerializer _jsonFormatter = new DataContractJsonSerializer(typeof(Game));
+
+
             using (FileStream _filestream = new FileStream(_filename, FileMode.Create))
             {
                 _jsonFormatter.WriteObject(_filestream, _game);
