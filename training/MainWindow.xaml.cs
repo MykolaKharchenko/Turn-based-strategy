@@ -25,7 +25,7 @@ namespace training
         {
             InitializeComponent();
 
-            // must me staied only one DataContext  !!
+            // must me staied only one DataContext  ?!
 
             DataContext = new GameDriveViewModel();
             //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());

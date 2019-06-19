@@ -1,74 +1,128 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace training.Models
 {
-    public class Game
+    public class Game : INotifyPropertyChanged
     {
-        //private int gameId;
-        public string pathGameAddress;
+        public int GameId { get; set; }
 
-        public Player PlayerLeft;
-        public Player PlayerRight;
-        Battlefield bf = new Battlefield();
-        public int turnCounter = 0;
-
-        public Game()
+        private string pathGameAddress;
+        public string PathGameAddress
         {
-            PlayerLeft = new Player();
-            PlayerRight = new Player();
-            StartGame();
+            get { return pathGameAddress; }
+            set
+            {
+                pathGameAddress = value;
+                OnPropertyChanged("PathGameAddress");
+            }
         }
 
-        public Game(string gamePath)          // for saved game
+        private Player playerLeft;
+        public Player PlayerLeft
+        {
+            get { return playerLeft; }
+            set
+            {
+                playerLeft = value;
+                OnPropertyChanged("PlayerLeft");
+            }
+        }
+
+        private Player playerRight;
+        public Player PlayerRight
+        {
+            get { return playerRight; }
+            set
+            {
+                playerRight = value;
+                OnPropertyChanged("PlayerRight");
+            }
+        }
+
+        private Battlefield battlefield = new Battlefield();
+        public Battlefield Battlefield
+        {
+            get { return battlefield; }
+            set
+            {
+                battlefield = value;
+                OnPropertyChanged("Battlefield");
+            }
+        }
+
+        private int turnCounter;
+        public int TurnCounter
+        {
+            get { return turnCounter; }
+            set
+            {
+                turnCounter = value;
+                OnPropertyChanged("TurnCounter");
+            }
+        }
+
+        #region ctors Game
+        public Game()
+        {
+            playerLeft = new Player();
+            playerRight = new Player();
+            StartGame();
+        }             // for new game
+
+        public Game(string gamePath) // for saved game
         {
             // .. must be written
         }
+        #endregion
 
         public void StartGame()
         {
             {
-                if (PlayerLeft.archers.UnitSize > PlayerRight.archers.UnitSize)
+                if (playerLeft.archers.UnitSize > playerRight.archers.UnitSize)
                 {
-                    PlayerLeft.IsTurning = true;
+                    playerLeft.IsTurning = true;
                     return;
                 }
 
-                if (PlayerLeft.swordsmen.UnitSize > PlayerRight.swordsmen.UnitSize)
+                if (playerLeft.swordsmen.UnitSize > playerRight.swordsmen.UnitSize)
                 {
-                    PlayerLeft.IsTurning = true;
+                    playerLeft.IsTurning = true;
                     return;
                 }
 
-                if (PlayerLeft.peasants.UnitSize > PlayerRight.peasants.UnitSize)
+                if (playerLeft.peasants.UnitSize > playerRight.peasants.UnitSize)
                 {
-                    PlayerLeft.IsTurning = true;
+                    playerLeft.IsTurning = true;
                     return;
                 }
 
-                if (GetTotalPlayerUnitSize(PlayerLeft) > GetTotalPlayerUnitSize(PlayerRight))
+                if (GetTotalPlayerUnitSize(playerLeft) > GetTotalPlayerUnitSize(playerRight))
                 {
-                    PlayerLeft.IsTurning = true;
+                    playerLeft.IsTurning = true;
                     return;
                 }
-
-                PlayerRight.IsTurning = true;
+                playerRight.IsTurning = true;
             }
         }
 
-        //public void Turn(Unit.Unit targetUnitStack = null, Battlefield bf = null)
-        //{
-        //    //p1.archy.GetDamage();
-        //}
+        public void Turn(Interfaces.IUnit targetUnitStack = null, Battlefield bf = null)
+        {
+        }
 
         public int GetTotalPlayerUnitSize(Player player)
         {
+            return player.archers.UnitSize + player.swordsmen.UnitSize + player.peasants.UnitSize;
+        }
 
-            var s = PlayerLeft.archers.activeUnitImagePath;
-            return  player.archers.UnitSize + player.swordsmen.UnitSize + player.peasants.UnitSize;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

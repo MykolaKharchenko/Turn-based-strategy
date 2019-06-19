@@ -14,7 +14,7 @@ namespace training.Services
         public Game Open(string filename)
         {
             Game _game = new Game();
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(List<Game>));
+            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Game));
 
             using (FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate))
             {

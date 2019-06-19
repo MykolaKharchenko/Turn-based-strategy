@@ -99,20 +99,8 @@ namespace training.ViewModel
             fileService = _fileService;
 
             db = new ApplicationContext();
-            db.Games.Load();
-            Games = db.Games.Local.ToBindingList();
-
-            //games = new Game()
-            //{
-            //    PlayerLeft = new Player()
-            //    {
-            //    },
-            //    PlayerRight = new Player()
-            //    {
-
-            //    },
-            //    pathGameAddress = ""
-            //};
+            //db.Games.Load();
+            //Games = db.Games.Local.ToBindingList();
         }
         #endregion
 

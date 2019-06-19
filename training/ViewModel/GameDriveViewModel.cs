@@ -18,8 +18,7 @@ namespace training.ViewModel
         ApplicationContext db;
         private Game game;
 
-        private Player selectedPlayer;
-                
+        private Player selectedPlayer;                
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
