@@ -15,7 +15,6 @@ namespace training.ViewModel
         IFileService fileService;
         IDialogService dialogService;
 
-        ApplicationContext db;
         private Game game;
 
         private Player selectedPlayer;                
@@ -29,14 +28,9 @@ namespace training.ViewModel
             }
         }
 
-        public GameDriveViewModel(IDialogService dialogService = null, IFileService fileService = null)
+        public GameDriveViewModel(Game game, IDialogService dialogService = null, IFileService fileService = null)
         {
             game = new Game();
-        }
-
-        public GameDriveViewModel(string gamePath, IDialogService dialogService = null, IFileService fileService = null)
-        {
-            //game = deserialize from db
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

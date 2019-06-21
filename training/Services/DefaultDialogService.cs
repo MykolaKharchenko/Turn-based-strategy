@@ -26,6 +26,8 @@ namespace training.Services
         public bool SaveFileDialog()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = "SavedGames";
+
             if (saveFileDialog.ShowDialog() == true)
             {
                 FilePath = saveFileDialog.FileName;

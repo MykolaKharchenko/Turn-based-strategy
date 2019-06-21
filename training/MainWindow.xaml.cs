@@ -21,14 +21,11 @@ namespace training
     public partial class MainWindow : Window
     {
         public Game Game { get; private set; }
+
         public MainWindow(Game _game)
         {
             InitializeComponent();
-
-            // must me staied only one DataContext  ?!
-
-            DataContext = new GameDriveViewModel();
-            //DataContext = new ApplicationViewModel(new DefaultDialogService(), new JsonFileService());
+            DataContext = new GameDriveViewModel(_game);
         }
     }
 }

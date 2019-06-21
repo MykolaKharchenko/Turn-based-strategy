@@ -39,11 +39,7 @@ namespace training.ViewModel
                     (newGameCommand = new RelayCommand((@new) =>
                     {
                         MainWindow mainWindow = new MainWindow(new Game());
-                        if (mainWindow.ShowDialog() == true)
-                        {
-                            Game game = mainWindow.Game;
-                            // bla-bla....
-                        }
+                        mainWindow.ShowDialog();
                     }
                     ));
             }
@@ -61,50 +57,18 @@ namespace training.ViewModel
                     {
                         if (dialogService.OpenFileDialog() == true)
                         {
-                            var game = fileService.Open(dialogService.FilePath);
-                            dialogService.ShowMessage("Файл открыт");
+                            var continuedGame = fileService.Open(dialogService.FilePath);
+                            MainWindow mainWindow = new MainWindow(continuedGame);
+                            mainWindow.ShowDialog();
                         }
                     }
                     catch (Exception ex)
                     {
                         dialogService.ShowMessage(ex.Message);
                     }
-
-                    //string gamePath = obj as string;
-                    //Game vm_game = fileService.Open(gamePath);
-                    //MainWindow mainWindow = new MainWindow(vm_game);
-                    
-                    // must be added ....
                 }));
             }
         }
-        // команда открытия файла
-        //private RelayCommand openCommand;
-        //public RelayCommand OpenCommand
-        //{
-        //    get
-        //    {
-        //        return openCommand ??
-        //          (openCommand = new RelayCommand(obj =>
-        //          {
-        //              try
-        //              {
-        //                  if (dialogService.OpenFileDialog() == true)
-        //                  {
-        //                      var phones = fileService.Open(dialogService.FilePath);
-        //                      Games.Clear();
-        //                      foreach (var p in Games)
-        //                          Games.Add(p);
-        //                      dialogService.ShowMessage("Файл открыт");
-        //                  }
-        //              }
-        //              catch (Exception ex)
-        //              {
-        //                  dialogService.ShowMessage(ex.Message);
-        //              }
-        //          }));
-        //    }
-        //}
 
         RelayCommand saveGameCommand;
         public RelayCommand SaveGameCommand
@@ -116,21 +80,19 @@ namespace training.ViewModel
                   {
                       try
                       {
-                          SelectedGame = new Game();
-
-                          if (dialogService.SaveFileDialog() == true)
+                          if (dialogService.SaveFileDialog() == true && selectedGame != null)
                           {
                               fileService.Save(dialogService.FilePath, SelectedGame);
-                              dialogService.ShowMessage("Файл сохранен");
+                              dialogService.ShowMessage("Файл сохранен");                              
                           }
                       }
                       catch (Exception ex)
                       {
                           dialogService.ShowMessage(ex.Message);
                       }
-                  }));
+                  },
+                  (obj) => selectedGame != null));
             }
-
         }
 
         RelayCommand exitAppCommand;
@@ -141,11 +103,9 @@ namespace training.ViewModel
                 return exitAppCommand ??
                     (exitAppCommand = new RelayCommand(mes =>
                     {
-                        //  but in future this code's block will be rewrited
-                        //  its here now only for reflection in UI
-                        if(true)//(SelectedGame != null)
+                        if (true)//(SelectedGame != null)
                         {
-                            dialogService.ShowMessage("Game isn't saved, do you realy want to leave this battle???");                            
+                            dialogService.ShowMessage("Game isn't saved, do you realy want to leave this battle???");
                         }
                     }
                     ));
