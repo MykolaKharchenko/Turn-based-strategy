@@ -36,7 +36,6 @@ namespace training
         {
             this.execute(parameter);
         }
-
         #endregion
     }
 }

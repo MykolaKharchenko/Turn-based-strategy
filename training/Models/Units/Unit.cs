@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using training.Interfaces;
 
 namespace training.Models.Units
 {
+    [DataContract]
     public abstract class Unit : IUnit
     {
         public int totalHP;

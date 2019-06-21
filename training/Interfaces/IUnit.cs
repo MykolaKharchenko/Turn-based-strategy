@@ -7,7 +7,7 @@ using training.Models.Units;
 using training.Models;
 
 namespace training.Interfaces
-{
+{    
     public interface IUnit
     {
         int UnitSize { get; }
