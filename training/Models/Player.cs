@@ -11,9 +11,38 @@ namespace training.Models
 {
     public class Player :INotifyPropertyChanged
     {
-        public IUnit archers;
-        public IUnit swordsmen;
-        public IUnit peasants;
+        private IUnit archers;
+        public IUnit Archers
+        {
+            get { return archers; }
+            set
+            {
+                archers = value;
+                OnPropertyChanged("Archers");
+            }
+        }
+
+        private IUnit swordsmen;
+        public IUnit Swordmen
+        {
+            get { return swordsmen; }
+            set
+            {
+                swordsmen = value;
+                OnPropertyChanged("Swordmen");
+            }
+        }
+
+        private IUnit peasants;
+        public IUnit Peasants
+        {
+            get { return peasants; }
+            set
+            {
+                peasants = value;
+                OnPropertyChanged("Swordmen");
+            }
+        }
 
         public bool IsTurning = false;
 

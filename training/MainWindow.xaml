@@ -29,28 +29,27 @@
         <StackPanel x:Name="game_buttons" Background="Beige" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Button Width="100" Content="Save Game"  Margin="50,10"></Button>
             <Button Width="100" Content="Next Step" Margin="150,10"></Button>
-            <Button Width="100" Content="Main Menu" Margin="50,10"></Button>
-
+            <Button Width="100" Content="Game Menu" Margin="50,10"></Button>
         </StackPanel>
+
+        <ListBox Grid.Column="0" Grid.Row="1" 
+                 ItemsSource="{Binding CurrentGame.PlayerLeft}"                 
+                 SelectedItem="{Binding SelectedPlayer}"
+                 Background="DarkGray">           
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <Image Width="100" Height="75" Source="{Binding Path=passiveUnitImagePath}" />
+                        <TextBlock Text="{Binding Path=UnitSize}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
 
         
         <TextBlock Grid.Column="1" Grid.Row="1" Background="LightBlue">
-
         </TextBlock>
 
-        <!--<StackPanel x:Name="playerLeft" Grid.Row="1" />-->
-
-        <TreeView x:Name="playerLeft" Grid.Row="1" ItemsSource="{Binding Game.PlayerLeft}">
-            <Image Source="{Binding PlayerLeft.}"></Image>
-        </TreeView>
-
-
-        <StackPanel x:Name="palyerRight" Grid.Row="1" Grid.Column="2">
-            
-        </StackPanel>
-
-
     </Grid>
-
-
 </Window>

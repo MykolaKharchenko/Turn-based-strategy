@@ -38,7 +38,7 @@ namespace training.ViewModel
                 return newGameCommand ??
                     (newGameCommand = new RelayCommand((@new) =>
                     {
-                        MainWindow mainWindow = new MainWindow(new Game());
+                        MainWindow mainWindow = new MainWindow(new Game(), dialogService, fileService);
                         mainWindow.ShowDialog();
                     }
                     ));
@@ -58,7 +58,7 @@ namespace training.ViewModel
                         if (dialogService.OpenFileDialog() == true)
                         {
                             var continuedGame = fileService.Open(dialogService.FilePath);
-                            MainWindow mainWindow = new MainWindow(continuedGame);
+                            MainWindow mainWindow = new MainWindow(continuedGame, dialogService, fileService);
                             mainWindow.ShowDialog();
                         }
                     }

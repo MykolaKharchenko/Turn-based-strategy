@@ -75,6 +75,10 @@ namespace training.Models
         {
             playerLeft = new Player();
             playerRight = new Player();
+
+            //var s = playerLeft.Archers.passiveUnitImagePath;
+            //var f = playerLeft.Archers.UnitSize;
+
             StartGame();
         }             // for new game
 
@@ -87,19 +91,19 @@ namespace training.Models
         public void StartGame()
         {
             {
-                if (playerLeft.archers.UnitSize > playerRight.archers.UnitSize)
+                if (playerLeft.Archers.UnitSize > playerRight.Archers.UnitSize)
                 {
                     playerLeft.IsTurning = true;
                     return;
                 }
 
-                if (playerLeft.swordsmen.UnitSize > playerRight.swordsmen.UnitSize)
+                if (playerLeft.Swordmen.UnitSize > playerRight.Swordmen.UnitSize)
                 {
                     playerLeft.IsTurning = true;
                     return;
                 }
 
-                if (playerLeft.peasants.UnitSize > playerRight.peasants.UnitSize)
+                if (playerLeft.Peasants.UnitSize > playerRight.Peasants.UnitSize)
                 {
                     playerLeft.IsTurning = true;
                     return;
@@ -118,9 +122,14 @@ namespace training.Models
         {
         }
 
+        public bool IsGameOver
+        {
+            get { return ((GetTotalPlayerUnitSize(PlayerLeft) > 0) || (GetTotalPlayerUnitSize(PlayerRight) > 0)) ? false : true; }            
+        }
+
         public int GetTotalPlayerUnitSize(Player player)
         {
-            return player.archers.UnitSize + player.swordsmen.UnitSize + player.peasants.UnitSize;
+            return player.Archers.UnitSize + player.Swordmen.UnitSize + player.Peasants.UnitSize;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

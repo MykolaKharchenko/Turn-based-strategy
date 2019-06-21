@@ -15,9 +15,18 @@ namespace training.ViewModel
         IFileService fileService;
         IDialogService dialogService;
 
-        private Game game;
+        private Game currentGame;
+        public Game CurrentGame
+        {
+            get { return currentGame; }
+            set
+            {
+                currentGame = value;
+                OnPropertyChanged("CurrentGame");
+            }
+        }
 
-        private Player selectedPlayer;                
+        private Player selectedPlayer;
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
@@ -28,9 +37,14 @@ namespace training.ViewModel
             }
         }
 
-        public GameDriveViewModel(Game game, IDialogService dialogService = null, IFileService fileService = null)
+        public GameDriveViewModel(Game game, IDialogService _dialogService = null, IFileService _fileService = null)
         {
-            game = new Game();
+            dialogService = _dialogService;
+            fileService = _fileService;
+
+            //if (game.IsGameOver == true)
+            //    dialogService.ShowMessage("Game over");
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

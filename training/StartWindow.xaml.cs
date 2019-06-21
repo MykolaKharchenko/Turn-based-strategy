@@ -23,7 +23,7 @@ namespace training
         public StartWindow()
         {
             InitializeComponent();
-            DataContext = new GameMenuViewModel(new DefaultDialogService(), new JsonFileService());
+            DataContext = new GameMenuViewModel(new DefaultDialogService(), new JsonFileService());            
         }
     }
 }

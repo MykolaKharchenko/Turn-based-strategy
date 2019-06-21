@@ -22,10 +22,10 @@ namespace training
     {
         public Game Game { get; private set; }
 
-        public MainWindow(Game _game)
+        public MainWindow(Game _game, IDialogService _dialogService, IFileService _fileService)
         {
             InitializeComponent();
-            DataContext = new GameDriveViewModel(_game);
+            DataContext = new GameDriveViewModel(_game, _dialogService, _fileService);
         }
     }
 }
