@@ -55,7 +55,6 @@
             </StackPanel>
         </StackPanel>
 
-
         <TextBlock Grid.Column="1" Grid.Row="1" Background="LightBlue">
         </TextBlock>
 
@@ -64,19 +63,46 @@
                     DataContext="{Binding Path=CurrentGame.PlayerRight}">
             <StackPanel DataContext="{Binding Path=Archers}" Margin="80,0" >
                 <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center"> 
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
                 <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
                 <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                            <SkewTransform AngleY="0" AngleX="0"/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
                 </TextBlock>
             </StackPanel>
