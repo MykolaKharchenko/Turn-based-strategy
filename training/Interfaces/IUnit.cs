@@ -16,6 +16,7 @@ namespace training.Interfaces
 
         string passiveUnitImagePath { get; set; }
         string activeUnitImagePath { get; set; }
+        string name { get; set; }
 
         void GetDamage(Unit enemy = null);
         void Move(Battlefield bf = null);

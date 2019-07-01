@@ -32,29 +32,56 @@
             <Button Width="100" Content="Game Menu" Margin="50,10"></Button>
         </StackPanel>
 
-        <ListBox Grid.Column="0" Grid.Row="1" 
-                 ItemsSource="{Binding CurrentGame.PlayerLeft}"                 
-                 SelectedItem="{Binding SelectedPlayer}"
-                 Background="DarkGray">           
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <Image Width="100" Height="75" Source="{Binding Path=passiveUnitImagePath}" />
-                        <TextBlock Text="{Binding Path=UnitSize}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <StackPanel Grid.Column="0" Grid.Row="1" Background="Green"  
+                    Orientation="Vertical" 
+                    DataContext="{Binding Path=CurrentGame.PlayerLeft}">
+            <StackPanel DataContext="{Binding Path=Archers}" Margin="80,0" >
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
 
 
-        
         <TextBlock Grid.Column="1" Grid.Row="1" Background="LightBlue">
         </TextBlock>
 
-        <StackPanel Grid.Column="2" Grid.Row="1" Background="LightBlue" DataContext="{Binding p}">
-           
+        <StackPanel Grid.Column="2" Grid.Row="1" Background="Green"  
+                    Orientation="Vertical" 
+                    DataContext="{Binding Path=CurrentGame.PlayerRight}">
+            <StackPanel DataContext="{Binding Path=Archers}" Margin="80,0" >
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
+                <!--<TextBlock Text="{Binding Path=Name}"/>-->
+                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
-        
-        
+
+
     </Grid>
 </Window>

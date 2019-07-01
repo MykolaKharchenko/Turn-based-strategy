@@ -13,6 +13,7 @@ namespace training.Models.Units
     {
         public Peasants() : base()
         {
+            name = "Peasants";
             totalHP = this.stackSize * StaticConfig.PeasantHP;
             stackSpeed = StaticConfig.PeasantSpeed;
             HP = 30;

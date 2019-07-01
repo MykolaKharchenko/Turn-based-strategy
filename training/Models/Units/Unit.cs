@@ -11,9 +11,11 @@ namespace training.Models.Units
     [DataContract]
     public abstract class Unit : IUnit
     {
+        public string name { get; set; }
+
         public int totalHP;
         public int stackSpeed;
-        public int stackSize;
+        public int stackSize;   
         public int HP;
         public int OffensivePoints;
         public int DefensePoints;
@@ -27,6 +29,7 @@ namespace training.Models.Units
         protected string _passiveUnitImagePath="";
             
         public int UnitSize { get { return stackSize; } }
+        public string Name { get { return name; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
         public bool IsActive { get; }   //  !!!!  i don't any solution
 

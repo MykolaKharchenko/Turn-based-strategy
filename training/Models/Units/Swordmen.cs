@@ -13,6 +13,7 @@ namespace training.Models.Units
     {
         public Swordmen() : base()
         {
+            name = "Swordmen";
             totalHP = this.stackSize * StaticConfig.SwordmanHP;
             stackSpeed = StaticConfig.SwordmanSpeed;
             HP = 100;

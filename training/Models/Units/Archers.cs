@@ -13,6 +13,7 @@ namespace training.Models.Units
     {
         public Archers() : base()
         {
+            name = "Archers";
             totalHP = this.stackSize * StaticConfig.ArcherHP;
             stackSpeed = StaticConfig.ArcherSpeed;
             HP = 50;
