@@ -22,6 +22,13 @@ namespace training
     {
         public Game Game { get; private set; }
 
+        public MainWindow(IDialogService _dialogService, IFileService _fileService)
+        {
+            InitializeComponent();
+            Game = new Game();
+        }
+
+
         public MainWindow(Game _game, IDialogService _dialogService, IFileService _fileService)
         {
             InitializeComponent();

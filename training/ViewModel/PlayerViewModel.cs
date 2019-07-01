@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using training.Interfaces;
-using training.Models.Units;
 
-namespace training.Models
+namespace training.ViewModel
 {
-    public class Player : IPlayer, INotifyPropertyChanged
+    public class PlayerViewModel : IPlayer, INotifyPropertyChanged 
     {
         private IUnit archers;
         public IUnit Archers
@@ -44,24 +43,11 @@ namespace training.Models
             }
         }
 
-        public bool IsTurning = false;
-
-        public Player()
-        {
-            archers = new Archers();
-            swordsmen = new Swordmen();
-            peasants = new Peasants();
-        }
-
-        public Player(string dataPath)
-        {
-            // must be written..
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));         
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

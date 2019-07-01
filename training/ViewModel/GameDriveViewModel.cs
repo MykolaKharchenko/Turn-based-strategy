@@ -37,10 +37,12 @@ namespace training.ViewModel
             }
         }
 
-        public GameDriveViewModel(Game game, IDialogService _dialogService = null, IFileService _fileService = null)
+        public GameDriveViewModel(Game game, IDialogService _dialogService = null,  IFileService _fileService = null)
         {
             dialogService = _dialogService;
             fileService = _fileService;
+
+            currentGame = new Game();
 
             //if (game.IsGameOver == true)
             //    dialogService.ShowMessage("Game over");
