@@ -23,6 +23,19 @@ namespace training.Services
         public static int SwordmanSpeed = 3;
         public static int PeasantSpeed = 2;
 
+        static Random gen = new Random();
+        //public static int Next
+        //{
+        //    get { return gen.Next(0, 500); }
+        //}
+
+        public static int Next(int upLimit)
+        {
+            return gen.Next(0, upLimit);
+        }
+
+
+
         public static string ConvertToString(object Obj)
         { return JsonConvert.SerializeObject(Obj); }
 

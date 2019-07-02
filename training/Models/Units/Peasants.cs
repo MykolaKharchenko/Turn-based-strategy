@@ -20,7 +20,7 @@ namespace training.Models.Units
             OffensivePoints = 2;
             DefensePoints = 1;
             Random s = new Random();
-            stackSize = s.Next(51, 251);
+            stackSize = StaticConfig.Next(500);
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_PeasantActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Peasant.gif";
         }

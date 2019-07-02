@@ -38,8 +38,7 @@ namespace training.Models.Units
 
         public Unit()
         {
-            Random s = new Random();
-         //  this.stackSize = s.Next(5, 51);
+            this.stackSize = Services.StaticConfig.Next(0); 
             activeUnitImagePath = "";
             passiveUnitImagePath = "";
         }
