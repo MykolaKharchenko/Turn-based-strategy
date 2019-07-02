@@ -93,6 +93,10 @@
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IUnit.cs" />
+    <Compile Include="Interfaces\IUnitAction.cs" />
+    <Compile Include="Models\Actions\Atack.cs" />
+    <Compile Include="Models\Actions\Move.cs" />
+    <Compile Include="Models\Actions\SpecialSkill.cs" />
     <Compile Include="Models\Battlefield.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Player.cs" />

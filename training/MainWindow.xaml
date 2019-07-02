@@ -14,7 +14,7 @@
             <Setter Property="FontSize" Value="24"></Setter>
         </Style>
 
-
+        <!-- Proccessing units' images on battlefield-->        
         <Style x:Key="ActiveStyle" TargetType="{x:Type Image}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=IsActive}" Value="true">
@@ -25,7 +25,6 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-
 
     </Window.Resources>
 
@@ -84,7 +83,7 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Image.RenderTransform>
-                </Image>
+                    </Image>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center"> 
                 </TextBlock>
             </StackPanel>

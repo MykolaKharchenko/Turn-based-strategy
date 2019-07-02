@@ -51,7 +51,7 @@ namespace training.Models.Units
             HandleDamage(this.stackSize * this.OffensivePoints, enemy);
         }
 
-        public void HandleDamage(int damage, Unit enemy = null)
+        protected void HandleDamage(int damage, Unit enemy = null)
         {
             int defense = this.stackSize * this.DefensePoints;
             int diedUnits = damage / enemy.HP;

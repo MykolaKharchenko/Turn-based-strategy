@@ -46,7 +46,6 @@ namespace training.ViewModel
 
             //if (game.IsGameOver == true)
             //    dialogService.ShowMessage("Game over");
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

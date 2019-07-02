@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using training.Interfaces;
 
 namespace training.Models
 {
@@ -75,10 +76,14 @@ namespace training.Models
         {
             playerLeft = new Player();
             playerRight = new Player();
-            
+
             StartGame();
-            Turn();
-        }   
+
+            while (IsGameOver == false)
+            {
+                Turn();
+            }
+        }
 
         public Game(string gamePath) // for saved game
         {
@@ -133,13 +138,34 @@ namespace training.Models
 
         public void Turn(Interfaces.IUnit targetUnitStack = null, Battlefield bf = null)
         {
-            PlayerLeft.GetUnitForTurning();
-            PlayerRight.GetUnitForTurning();
+            UnitAction(GetCurrentActiveUnit());
+       }
+
+        public IUnit GetCurrentActiveUnit()
+        {
+            IUnit activeLeftUnit = PlayerLeft.GetUnitForTurning();
+            IUnit activeRightUnit = PlayerRight.GetUnitForTurning();
+
+            if (activeLeftUnit.IsActive)
+            {
+                return activeLeftUnit;
+            }
+            if (activeRightUnit.IsActive)
+            {
+                return activeRightUnit;
+            }
+            else
+                throw new Exception("бида, не опереден \"активный\" юнит");
+        }
+
+        public void UnitAction(IUnit activeUnit)
+        {
+            // Atack, Move, SpecialSkill, 
         }
 
         public bool IsGameOver
         {
-            get { return ((GetTotalPlayerUnitSize(PlayerLeft) > 0) || (GetTotalPlayerUnitSize(PlayerRight) > 0)) ? false : true; }            
+            get { return ((GetTotalPlayerUnitSize(PlayerLeft) > 0) || (GetTotalPlayerUnitSize(PlayerRight) > 0)) ? false : true; }
         }
 
         public int GetTotalPlayerUnitSize(Player player)
