@@ -20,19 +20,10 @@ namespace training
 {
     public partial class MainWindow : Window
     {
-        public Game Game { get; private set; }
-
-        //public MainWindow(IDialogService _dialogService, IFileService _fileService)
-        //{
-        //    InitializeComponent();
-        //    Game = new Game();
-        //}
-
-
-        public MainWindow(Game _game, IDialogService _dialogService, IFileService _fileService)
+        public MainWindow( IDialogService _dialogService, IFileService _fileService, Game game = null)
         {
             InitializeComponent();
-            DataContext = new GameDriveViewModel(_game, _dialogService, _fileService);
+            DataContext = new GameDriveViewModel( _dialogService, _fileService);
         }
     }
 }

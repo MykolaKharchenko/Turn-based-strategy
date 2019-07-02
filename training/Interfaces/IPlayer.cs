@@ -11,5 +11,8 @@ namespace training.Interfaces
         IUnit Archers { get; set; }
         IUnit Swordmen { get; set; }
         IUnit Peasants { get; set; }
+
+        IUnit GetUnitForTurning();
+       //Queue<IUnit> QueueForTurn { get; set; }
     }
 }

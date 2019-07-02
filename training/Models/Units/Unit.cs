@@ -29,18 +29,21 @@ namespace training.Models.Units
         protected string _passiveUnitImagePath="";
             
         public int UnitSize { get { return stackSize; } }
+        public int StackSpeed { get { return stackSpeed; } }
         public string Name { get { return name; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
-        public bool IsActive { get; }   //  !!!!  i don't any solution
-
-        public string passiveUnitImagePath { get { return _passiveUnitImagePath; }  set { value = _passiveUnitImagePath; } }
+      
+        public string passiveUnitImagePath { get { return _passiveUnitImagePath; } set { value = _passiveUnitImagePath; } }
         public string activeUnitImagePath { get { return _activeUnitImagePath; } set { value = _activeUnitImagePath; } }
+
+        public bool IsActive { get; set; }
 
         public Unit()
         {
-            this.stackSize = Services.StaticConfig.Next(0); 
+            this.stackSize = Services.StaticConfig.Next(0);
             activeUnitImagePath = "";
             passiveUnitImagePath = "";
+            IsActive = false;
         }
 
         public void GetDamage(Unit enemy = null)
@@ -59,7 +62,7 @@ namespace training.Models.Units
             enemy.totalHP -= damage >= defense ? damage - defense : 1;
         }
 
-        public void Move(Battlefield bf = null)
+        public virtual void Move(Battlefield bf = null)
         {
         }
 

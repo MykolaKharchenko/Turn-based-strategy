@@ -48,7 +48,7 @@ namespace Sandbox.Unit
             enemy.totalHP -= damage >= defense ? damage - defense : 1;
         }
 
-        public void Move(Battlefield bf = null)
+        public virtual void Move(Battlefield bf = null)
         {
         }
 

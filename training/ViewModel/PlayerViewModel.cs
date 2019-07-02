@@ -43,6 +43,11 @@ namespace training.ViewModel
             }
         }
 
+        IUnit IPlayer.GetUnitForTurning()
+        {
+            return null;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!

@@ -19,7 +19,6 @@ namespace training.Models.Units
             HP = 100;
             OffensivePoints = 5;
             DefensePoints = 8;
-            Random s = new Random();
             stackSize = StaticConfig.Next(50);
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_SwordsmanActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Swordsman.gif";
@@ -30,6 +29,10 @@ namespace training.Models.Units
             SkillName = "Marshes";
             this.stackSpeed *= 2;
             TimeoutToRefreshSkill = 3;
+        }
+
+        public override void Move(Battlefield bf = null)
+        {
         }
     }
 }

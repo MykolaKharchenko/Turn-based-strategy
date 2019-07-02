@@ -11,8 +11,9 @@ namespace training.Interfaces
     public interface IUnit
     {
         int UnitSize { get; }
+        int StackSpeed { get;  }
         bool IsAlive { get; }
-        bool IsActive { get; }
+        bool IsActive { get; set; } 
 
         string passiveUnitImagePath { get; set; }
         string activeUnitImagePath { get; set; }

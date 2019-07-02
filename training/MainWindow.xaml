@@ -13,7 +13,22 @@
         <Style TargetType="Button" x:Key="game_buttons">
             <Setter Property="FontSize" Value="24"></Setter>
         </Style>
+
+
+        <Style x:Key="ActiveStyle" TargetType="{x:Type Image}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsActive}" Value="true">
+                    <Setter Property="Source" Value="{Binding Path=activeUnitImagePath}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=IsActive}" Value="false">
+                    <Setter Property="Source" Value="{Binding Path=passiveUnitImagePath}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
     </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>
@@ -36,20 +51,17 @@
                     Orientation="Vertical" 
                     DataContext="{Binding Path=CurrentGame.PlayerLeft}">
             <StackPanel DataContext="{Binding Path=Archers}" Margin="80,0" >
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80"/>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center">
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80"/>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80"/>
+                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80"/>
                 <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
                 </TextBlock>
             </StackPanel>
@@ -59,11 +71,11 @@
         </TextBlock>
 
         <StackPanel Grid.Column="2" Grid.Row="1" Background="Green"  
-                    Orientation="Vertical" 
+                    Orientation="Vertical"
                     DataContext="{Binding Path=CurrentGame.PlayerRight}">
             <StackPanel DataContext="{Binding Path=Archers}" Margin="80,0" >
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                <Image Style="{StaticResource ActiveStyle}"
+                    Width="60" Height="80"    RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="1" ScaleX="-1"/>
@@ -77,8 +89,7 @@
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="1" ScaleX="-1"/>
@@ -92,8 +103,7 @@
                 </TextBlock>
             </StackPanel>
             <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
-                <!--<TextBlock Text="{Binding Path=Name}"/>-->
-                <Image Source="{Binding Path=passiveUnitImagePath}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleY="1" ScaleX="-1"/>
@@ -103,11 +113,8 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
-                </TextBlock>
+                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
-
-
     </Grid>
 </Window>

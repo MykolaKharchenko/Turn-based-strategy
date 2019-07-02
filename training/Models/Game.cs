@@ -71,16 +71,14 @@ namespace training.Models
         }
 
         #region ctors Game
-        public Game()
+        public Game()                // for new game
         {
             playerLeft = new Player();
             playerRight = new Player();
-
-            //var s = playerLeft.Archers.passiveUnitImagePath;
-            //var f = playerLeft.Archers.UnitSize;
-
+            
             StartGame();
-        }             // for new game
+            Turn();
+        }   
 
         public Game(string gamePath) // for saved game
         {
@@ -96,16 +94,31 @@ namespace training.Models
                     playerLeft.IsTurning = true;
                     return;
                 }
+                else if (playerLeft.Archers.UnitSize < playerRight.Archers.UnitSize)
+                {
+                    playerRight.IsTurning = true;
+                    return;
+                }
 
                 if (playerLeft.Swordmen.UnitSize > playerRight.Swordmen.UnitSize)
                 {
                     playerLeft.IsTurning = true;
                     return;
                 }
+                else if (playerLeft.Archers.UnitSize < playerRight.Archers.UnitSize)
+                {
+                    playerRight.IsTurning = true;
+                    return;
+                }
 
                 if (playerLeft.Peasants.UnitSize > playerRight.Peasants.UnitSize)
                 {
                     playerLeft.IsTurning = true;
+                    return;
+                }
+                else if (playerLeft.Archers.UnitSize < playerRight.Archers.UnitSize)
+                {
+                    playerRight.IsTurning = true;
                     return;
                 }
 
@@ -120,6 +133,8 @@ namespace training.Models
 
         public void Turn(Interfaces.IUnit targetUnitStack = null, Battlefield bf = null)
         {
+            PlayerLeft.GetUnitForTurning();
+            PlayerRight.GetUnitForTurning();
         }
 
         public bool IsGameOver

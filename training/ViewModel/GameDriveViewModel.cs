@@ -37,7 +37,7 @@ namespace training.ViewModel
             }
         }
 
-        public GameDriveViewModel(Game game, IDialogService _dialogService = null,  IFileService _fileService = null)
+        public GameDriveViewModel( IDialogService _dialogService = null,  IFileService _fileService = null, Game game = null)
         {
             dialogService = _dialogService;
             fileService = _fileService;

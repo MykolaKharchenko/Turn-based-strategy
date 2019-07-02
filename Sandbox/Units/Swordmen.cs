@@ -20,7 +20,7 @@ namespace Sandbox.Unit
             stackSize = s.Next(5, 51);
         }
 
-        public void Move(Battlefield bf)
+        public override void Move(Battlefield bf)
         {
         }
         public override void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)

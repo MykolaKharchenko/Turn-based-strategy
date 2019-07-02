@@ -43,21 +43,58 @@ namespace training.Models
                 OnPropertyChanged("Swordmen");
             }
         }
+               
+        private List<IUnit> unitsStacks;
+        public List<IUnit> UnitsStacks
+        {
+            get { return unitsStacks; }
+            set
+            {
+                unitsStacks = value;
+            }
+        }
 
-        public bool IsTurning = false;
+        protected List<IUnit> InitUnitsStack()
+        {            
+            List<IUnit> _UnitsStack = new List<IUnit>() { Swordmen, Archers,Peasants };
+            _UnitsStack =  _UnitsStack.OrderByDescending(x => x.StackSpeed).ToList();
+            return _UnitsStack;
+        }
 
+        public IUnit GetUnitForTurning()
+        {
+            if (this.IsTurning)
+            {
+                UnitsStacks.First().IsActive = true;        // первого Юнита делаем "активным"
+
+                UnitsStacks.Add(UnitsStacks[0]);            // прокидываем копию первого Юнита в конец очереди 
+                var res = UnitsStacks[0];
+                UnitsStacks.RemoveAt(0);                    // удаляем первого в Очереди
+
+                return res;
+            }
+            else return UnitsStacks[0];
+        }
+        public bool IsTurning;
+
+        #region ctors Player
         public Player()
         {
             archers = new Archers();
             swordsmen = new Swordmen();
             peasants = new Peasants();
+
+            unitsStacks = InitUnitsStack();
+
+            IsTurning = false;
         }
 
         public Player(string dataPath)
         {
             // must be written..
         }
-
+        #endregion
+                
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {

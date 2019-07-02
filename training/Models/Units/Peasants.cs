@@ -19,7 +19,6 @@ namespace training.Models.Units
             HP = 30;
             OffensivePoints = 2;
             DefensePoints = 1;
-            Random s = new Random();
             stackSize = StaticConfig.Next(500);
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_PeasantActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Peasant.gif";
@@ -31,5 +30,10 @@ namespace training.Models.Units
             targetUnitStack.DefensePoints += 2;
             TimeoutToRefreshSkill = 3;
         }
+
+        public override void Move(Battlefield bf = null)
+        {
+        }
+
     }
 }

@@ -19,7 +19,6 @@ namespace training.Models.Units
             HP = 50;
             OffensivePoints = 7;
             DefensePoints = 4;
-            Random s = new Random();
             stackSize = StaticConfig.Next(100);
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
@@ -30,6 +29,10 @@ namespace training.Models.Units
             SkillName = "Double Shoot";
             OffensivePoints *= 2;
             TimeoutToRefreshSkill = 3;
+        }
+
+        public override void Move(Battlefield bf = null)
+        {
         }
     }
 }
