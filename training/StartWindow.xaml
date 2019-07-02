@@ -32,19 +32,19 @@
             <Button Margin="0,10" Command="{Binding ExitAppCommand}" Content="Exit" Background="LightCoral" Height="50"/>
         </StackPanel>
 
-        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\sword.png"  
+        <Image Source="Images\sword.png"  
                Grid.Column="1" HorizontalAlignment="Left" 
                Height="27" Width="29" 
                Margin="220,29,0,0" Grid.Row="1" 
                VerticalAlignment="Top" 
                RenderTransformOrigin="4.45,5.65"/>
-        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\star.png"  
+        <Image Source="Images\star.png"  
                Grid.Column="1" HorizontalAlignment="Left" 
                Height="27" Width="29" 
                Margin="184,29,0,0" Grid.Row="1" 
                VerticalAlignment="Top" 
                RenderTransformOrigin="4.45,5.65"/>
-        <Image Source="C:\Users\nikk\source\repos\tbs3\training\Images\running.png"  
+        <Image Source="Images\running.png"  
                Grid.Column="1" HorizontalAlignment="Left" 
                Height="27" Width="29" 
                Margin="145,29,0,0" Grid.Row="1" 
