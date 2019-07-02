@@ -23,7 +23,7 @@ namespace training
         public MainWindow( IDialogService _dialogService, IFileService _fileService, Game game = null)
         {
             InitializeComponent();
-            DataContext = new GameDriveViewModel( _dialogService, _fileService);
+            DataContext = new GameDriveViewModel( _dialogService, _fileService, game);
         }
     }
 }

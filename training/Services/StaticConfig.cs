@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using training.Models;
 
 namespace training.Services
 {
@@ -39,10 +40,13 @@ namespace training.Services
         public static string ConvertToString(object Obj)
         { return JsonConvert.SerializeObject(Obj); }
 
-        public static Models.Player ConvertToObjectPlayer(string str)
+        public static Player ConvertToObjectPlayer(string str)
         { return JsonConvert.DeserializeObject<Models.Player>(str); }
 
-        public static Models.Battlefield ConvertToObjectBattlefield(string str)
+        public static Game ConvertToObjectGame(string str)
+        { return JsonConvert.DeserializeObject<Models.Game>(str); }
+
+        public static Battlefield ConvertToObjectBattlefield(string str)
         { return JsonConvert.DeserializeObject<Models.Battlefield>(str); }
 
     }

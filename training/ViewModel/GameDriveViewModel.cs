@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using training.Interfaces;
 using training.Models;
 using training.Services;
 
@@ -26,25 +27,30 @@ namespace training.ViewModel
             }
         }
 
-        private Player selectedPlayer;
-        public Player SelectedPlayer
+        private IUnit selectedActiveUnit;
+        public IUnit SelectedActiveUnit
         {
-            get { return selectedPlayer; }
+            get { return selectedActiveUnit; }
             set
             {
-                selectedPlayer = value;
-                OnPropertyChanged("SelectedPlayer");
+                selectedActiveUnit = value;
+                OnPropertyChanged("SelectedUnit");
             }
         }
 
-        public GameDriveViewModel( IDialogService _dialogService = null,  IFileService _fileService = null, Game game = null)
+        public GameDriveViewModel(IDialogService _dialogService = null, IFileService _fileService = null, Game game = null)
         {
             dialogService = _dialogService;
             fileService = _fileService;
 
-            currentGame = new Game();
+            if (game == null)
+                currentGame = new Game();
+            else
+                currentGame = game; // StaticConfig.ConvertToObjectGame("");
 
-            //if (game.IsGameOver == true)
+            selectedActiveUnit = currentGame.GetCurrentActiveUnit();
+
+            //if (currentGame.IsGameOver == true)
             //    dialogService.ShowMessage("Game over");
         }
 

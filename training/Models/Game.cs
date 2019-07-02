@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using training.Interfaces;
+using training.Services;
 
 namespace training.Models
 {
@@ -78,15 +79,11 @@ namespace training.Models
             playerRight = new Player();
 
             StartGame();
-
-            while (IsGameOver == false)
-            {
-                Turn();
-            }
         }
 
-        public Game(string gamePath) // for saved game
+        public Game(string data) // for saved game
         {
+            //this = StaticConfig.ConvertToObjectGame(data);          
             // .. must be written
         }
         #endregion
@@ -136,11 +133,6 @@ namespace training.Models
             }
         }
 
-        public void Turn(Interfaces.IUnit targetUnitStack = null, Battlefield bf = null)
-        {
-            UnitAction(GetCurrentActiveUnit());
-       }
-
         public IUnit GetCurrentActiveUnit()
         {
             IUnit activeLeftUnit = PlayerLeft.GetUnitForTurning();
@@ -158,10 +150,10 @@ namespace training.Models
                 throw new Exception("бида, не опереден \"активный\" юнит");
         }
 
-        public void UnitAction(IUnit activeUnit)
-        {
-            // Atack, Move, SpecialSkill, 
-        }
+        //public void UnitAction(IUnit activeUnit)
+        //{
+        //    // Atack, Move, SpecialSkill, 
+        //}
 
         public bool IsGameOver
         {

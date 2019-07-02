@@ -85,7 +85,6 @@ namespace training.Models
             peasants = new Peasants();
 
             unitsStacks = InitUnitsStack();
-
             IsTurning = false;
         }
 
