@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter">
+
+        </BooleanToVisibilityConverter>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="16"/>
         </Style>
@@ -75,32 +78,18 @@
                     Orientation="Vertical"
                     DataContext="{Binding Path=CurrentGame.PlayerRight}">
 
-            <ToggleButton Background ="Transparent">
-                <ToggleButton.Style>
-                    <Style TargetType="ToggleButton">
-                        <Style.Triggers>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter   Property="Opacity" Value="0"></Setter>
-                                <Setter  Property="Opacity" Value="0"></Setter>
-                                <Setter  Property="Opacity" Value="0"></Setter>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter  Property="Opacity" Value="100"></Setter>
-                                <Setter  Property="Opacity" Value="100"></Setter>
-                                <Setter  Property="Opacity" Value="100"></Setter>
-                            </Trigger>
-                        </Style.Triggers>                    
-                    </Style>
-                </ToggleButton.Style>
-                
+            <ToggleButton x:Name="plus" Background ="Transparent" >
                 <StackPanel DataContext="{Binding Path=Archers}" Margin="80,20,80,0" >
                     <StackPanel Orientation="Horizontal" Width="150"  HorizontalAlignment="Center">
-                        <Image x:Name="sword" Source="Images\sword.png" Height="27" Width="29" />
-                        <Image x:Name="skill" Source="Images\star.png" Height="27" Width="29" />
-                        <Image x:Name="move" Source="Images\running.png" Height="27" Width="29"/>
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\sword.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                              Source="Images\star.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\running.png" Height="27" Width="29"/>
                     </StackPanel>
 
-                    <Image x:Name="UnitIcon" Style="{StaticResource ActiveStyle}"
+                    <Image Style="{StaticResource ActiveStyle}"
                     Width="60" Height="80"    RenderTransformOrigin="0.5,0.5" Cursor="Arrow">
                         <Image.RenderTransform>
                             <TransformGroup>
@@ -114,33 +103,59 @@
                     <TextBlock Text="{Binding UnitSize}" Foreground="Silver"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </StackPanel>
             </ToggleButton>
-            <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
-                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                            <SkewTransform AngleY="0" AngleX="0"/>
-                            <RotateTransform Angle="0"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
-                </TextBlock>
-            </StackPanel>
-            <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
-                <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                            <SkewTransform AngleY="0" AngleX="0"/>
-                            <RotateTransform Angle="0"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                </Image>
-                <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </StackPanel>
+
+            <ToggleButton x:Name="plus5" Background ="Transparent">
+                <StackPanel DataContext="{Binding Path=Swordmen}"  Margin="80,0">
+
+                    <StackPanel Orientation="Horizontal" Width="150"  HorizontalAlignment="Center">
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus5,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\sword.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus5,Converter={StaticResource BooleanToVisibilityConverter}}"
+                              Source="Images\star.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus5,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\running.png" Height="27" Width="29"/>
+                    </StackPanel>
+
+                    <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                <SkewTransform AngleY="0" AngleX="0"/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    </TextBlock>
+                </StackPanel>
+            </ToggleButton>
+
+            <ToggleButton x:Name="plus6" Background ="Transparent">
+                <StackPanel DataContext="{Binding Path=Peasants}" Margin="80,0" >
+
+                    <StackPanel Orientation="Horizontal" Width="150"  HorizontalAlignment="Center">
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus6,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\sword.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus6,Converter={StaticResource BooleanToVisibilityConverter}}"
+                              Source="Images\star.png" Height="27" Width="29" />
+                        <Image Visibility="{Binding Path=IsChecked, ElementName=plus6,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\running.png" Height="27" Width="29"/>
+                    </StackPanel>
+
+                    <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                                <SkewTransform AngleY="0" AngleX="0"/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <TextBlock Text="{Binding Path=UnitSize}" Foreground="Silver" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </ToggleButton>
         </StackPanel>
     </Grid>
 </Window>
