@@ -20,7 +20,7 @@ namespace training.Models.Units
         public int OffensivePoints;
         public int DefensePoints;
         public string SkillName { get; set; }
-        public int TimeoutToRefreshSkill = 0;
+        public int TimeoutToRefreshSkill;
 
         public string attackIconPath = @"Images\sword.png";
         public string moveIconPath = @"Images\running.png";
@@ -37,6 +37,7 @@ namespace training.Models.Units
         public string activeUnitImagePath { get { return _activeUnitImagePath; } set { value = _activeUnitImagePath; } }
 
         public bool IsActive { get; set; }
+       public bool IsSpecSkillACtive { get; set; }
 
         public Unit()
         {
@@ -44,10 +45,8 @@ namespace training.Models.Units
             activeUnitImagePath = "";
             passiveUnitImagePath = "";
             IsActive = false;
-        }
-
-        public void Act(Unit enemt = null, Battlefield bf = null)
-        {
+            IsSpecSkillACtive = false;
+            TimeoutToRefreshSkill = 2;
         }
 
         public void GetDamage(Unit enemy = null)
@@ -70,19 +69,18 @@ namespace training.Models.Units
         {
         }
 
-        public void AbilitySpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
+        public bool AbilitySpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
-            if (TimeoutToRefreshSkill > 0)
-                return;
-            else
-            {
-                SpecialSkill(targetUnitStack, bf);
-            }
-            TimeoutToRefreshSkill--;
+            return (TimeoutToRefreshSkill == 0) ? true : false;
         }
 
         public virtual void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
+            if(AbilitySpecialSkill(targetUnitStack, bf))
+            {
+                // bla-bla = logic of specskill foer each real Unit
+            }
+            TimeoutToRefreshSkill--;
         }
     }
 }

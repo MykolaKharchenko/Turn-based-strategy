@@ -59,18 +59,21 @@ namespace training.ViewModel
         #endregion
 
         #region commands
-
-        RelayCommand actUnitCommand;
-        public RelayCommand ActUnitCommand
+        /// <summary>
+        /// SuperCommand - do i must use this command?
+        /// </summary>
+   
+        RelayCommand attackUnitCommand;
+        public RelayCommand AttackUnitCommand
         {
             get
             {
-                return actUnitCommand ??
-                (actUnitCommand = new RelayCommand((obj) =>
+                return attackUnitCommand ??
+                (attackUnitCommand = new RelayCommand((obj) =>
                 {                                      //   Execute block
                     try
                     {
-                        selectedActiveUnit.Act();     //     - создать подкоманду для клоцания Действий
+                        selectedActiveUnit.GetDamage();     //     - создать подкоманду для клоцания Действий
                         currentGame.TurnSwitching();
                     }
                     catch (Exception ex)
@@ -80,6 +83,52 @@ namespace training.ViewModel
                 },
                 (obj) => CurrentGame.IsGameOver == true)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
                 );
+            }
+        }
+
+        RelayCommand specSkillUnitCommand;
+        public RelayCommand SpecSkillUnitCommand
+        {
+            get
+            {
+                return specSkillUnitCommand ??
+                (specSkillUnitCommand = new RelayCommand((obj) =>
+                {                                      //   Execute block
+                    try
+                    {
+                        selectedActiveUnit.SpecialSkill();     
+                        currentGame.TurnSwitching();
+                    }
+                    catch (Exception ex)
+                    {
+                        dialogService.ShowMessage(ex.Message);
+                    }
+                },
+                (obj) => (CurrentGame.IsGameOver == true && SelectedActiveUnit.AbilitySpecialSkill())   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                ));
+            }
+        }
+
+        RelayCommand moveUnitCommand;
+        public RelayCommand MoveUnitCommand
+        {
+            get
+            {
+                return moveUnitCommand ??
+                (moveUnitCommand = new RelayCommand((obj) =>
+                {                                      //   Execute block
+                    try
+                    {
+                        selectedActiveUnit.Move();
+                        currentGame.TurnSwitching();
+                    }
+                    catch (Exception ex)
+                    {
+                        dialogService.ShowMessage(ex.Message);
+                    }
+                },
+                (obj) => (CurrentGame.IsGameOver == true)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                ));
             }
         }
 

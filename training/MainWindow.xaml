@@ -85,12 +85,18 @@
                     <ToggleButton x:Name="plusRight" Background ="Transparent" >
                         <StackPanel  Margin="80,20,80,0" Width="auto" HorizontalAlignment="Right">
                             <StackPanel Orientation="Horizontal" Width="150" Height="30" HorizontalAlignment="Center">
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=pplusRightlus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Button Command="{Binding AttackUnitCommand}">
+                                    <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                Source="Images\sword.png" Margin="40,0,0,0" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                </Button>
+                                <Button Command="{Binding SpecSkillUnitCommand}">
+                                    <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                               Source="Images\star.png" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                </Button>
+                                <Button Command="{Binding MoveUnitCommand}">
+                                    <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                Source="Images\running.png" Height="27" Width="29"/>
+                                </Button>
                             </StackPanel>
                             <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5" >
                                 <Image.RenderTransform>
