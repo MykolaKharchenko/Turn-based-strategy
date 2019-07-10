@@ -150,10 +150,10 @@ namespace training.Models
                 throw new Exception("бида, не опереден \"активный\" юнит");
         }
 
-        //public void UnitAction(IUnit activeUnit)
-        //{
-        //    // Atack, Move, SpecialSkill, 
-        //}
+        public void TurnSwitching()
+        {
+            
+        }
 
         public bool IsGameOver
         {

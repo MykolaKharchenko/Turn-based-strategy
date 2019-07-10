@@ -94,6 +94,10 @@
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IUnit.cs" />
     <Compile Include="Interfaces\IUnitAction.cs" />
+    <Compile Include="Models\Acts\Act.cs" />
+    <Compile Include="Models\Acts\Atack.cs" />
+    <Compile Include="Models\Acts\Move.cs" />
+    <Compile Include="Models\Acts\SpecialSkill.cs" />
     <Compile Include="Models\Battlefield.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Player.cs" />
@@ -112,7 +116,6 @@
     </Compile>
     <Compile Include="ViewModel\GameDriveViewModel.cs" />
     <Compile Include="ViewModel\GameMenuViewModel.cs" />
-    <Compile Include="ViewModel\PlayerViewModel.cs" />
     <Compile Include="Views\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>

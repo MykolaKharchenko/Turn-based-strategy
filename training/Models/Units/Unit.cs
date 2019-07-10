@@ -46,12 +46,16 @@ namespace training.Models.Units
             IsActive = false;
         }
 
+        public void Act(Unit enemt = null, Battlefield bf = null)
+        {
+        }
+
         public void GetDamage(Unit enemy = null)
         {
             HandleDamage(this.stackSize * this.OffensivePoints, enemy);
         }
 
-        protected void HandleDamage(int damage, Unit enemy = null)
+        protected virtual void HandleDamage(int damage, Unit enemy = null)
         {
             int defense = this.stackSize * this.DefensePoints;
             int diedUnits = damage / enemy.HP;

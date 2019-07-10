@@ -16,6 +16,7 @@ namespace training.ViewModel
         IFileService fileService;
         IDialogService dialogService;
 
+        #region notified props
         private Game currentGame;
         public Game CurrentGame
         {
@@ -37,7 +38,9 @@ namespace training.ViewModel
                 OnPropertyChanged("SelectedUnit");
             }
         }
+        #endregion
 
+        #region ctor GameDriveVM
         public GameDriveViewModel(IDialogService _dialogService = null, IFileService _fileService = null, Game game = null)
         {
             dialogService = _dialogService;
@@ -53,11 +56,41 @@ namespace training.ViewModel
             if (currentGame.IsGameOver == true)
                 dialogService.ShowMessage("Game over");
         }
-        
+        #endregion
+
+        #region commands
+
+        RelayCommand actUnitCommand;
+        public RelayCommand ActUnitCommand
+        {
+            get
+            {
+                return actUnitCommand ??
+                (actUnitCommand = new RelayCommand((obj) =>
+                {                                      //   Execute block
+                    try
+                    {
+                        selectedActiveUnit.Act();     //     - создать подкоманду для клоцания Действий
+                        currentGame.TurnSwitching();
+                    }
+                    catch (Exception ex)
+                    {
+                        dialogService.ShowMessage(ex.Message);
+                    }
+                },
+                (obj) => CurrentGame.IsGameOver == true)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                );
+            }
+        }
+
+        #endregion
+
+        #region implementation INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
     }
 }
