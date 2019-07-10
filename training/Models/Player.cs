@@ -67,9 +67,9 @@ namespace training.Models
             {
                 UnitsStacks.First().IsActive = true;        // первого Юнита делаем "активным"
 
-                UnitsStacks.Add(UnitsStacks[0]);            // прокидываем копию первого Юнита в конец очереди 
+                //UnitsStacks.Add(UnitsStacks[0]);            // прокидываем копию первого Юнита в конец очереди 
                 var res = UnitsStacks[0];
-                UnitsStacks.RemoveAt(0);                    // удаляем первого в Очереди
+                //UnitsStacks.RemoveAt(0);                    // удаляем первого в Очереди
 
                 return res;
             }

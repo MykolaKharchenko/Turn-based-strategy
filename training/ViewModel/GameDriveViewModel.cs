@@ -50,10 +50,10 @@ namespace training.ViewModel
 
             selectedActiveUnit = currentGame.GetCurrentActiveUnit();
 
-            //if (currentGame.IsGameOver == true)
-            //    dialogService.ShowMessage("Game over");
+            if (currentGame.IsGameOver == true)
+                dialogService.ShowMessage("Game over");
         }
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {

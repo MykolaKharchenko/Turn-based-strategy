@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:training"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="860">
+        Title="MainWindow" Height="640" Width="1080">
     
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -29,14 +29,13 @@
             </Style.Triggers>
         </Style>
         <!-- Proccessing units' images for ACTIVITY and CHECKING-->
-
     </Window.Resources>
 
     <Grid Background="Green">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.15*"/>
             <RowDefinition/>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -44,9 +43,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel x:Name="game_buttons" Width="auto" HorizontalAlignment="Center" Grid.ColumnSpan="3" Orientation="Horizontal">
-            <Button Width="100" Content="Save Game"  Margin="50,10"/>
-            <Button Width="100" Content="Next Step" Margin="100,10"/>
-            <Button Width="100" Content="Game Menu" Margin="50,10"/>
+            <Button Width="150" Content="Save Game"  Margin="50,10"/>
+            <Button Width="150" Content="Next Step" Margin="100,10"/>
+            <Button Width="150" Content="Game Menu" Margin="50,10"/>
         </StackPanel>
 
         <ListBox ItemsSource="{Binding Path=CurrentGame.PlayerLeft.UnitsStacks}" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch">
@@ -57,14 +56,14 @@
             </ListBox.Template>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ToggleButton x:Name="plus" Background ="Transparent">
-                        <StackPanel  Margin="80,20,80,0" >
-                            <StackPanel Width="100" Height="10" Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                    <ToggleButton x:Name="plusLeft" Background ="Transparent" Height="auto">
+                        <StackPanel Margin="-80,20,80,0" Width="auto">
+                            <StackPanel Width="100" Height="30" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                Source="Images\sword.png" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                               Source="Images\star.png" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                Source="Images\running.png" Height="27" Width="29"/>
                             </StackPanel>
                             <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5" Cursor="Arrow"/>
@@ -83,17 +82,17 @@
             </ListBox.Template>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ToggleButton x:Name="plus" Background ="Transparent" >
-                        <StackPanel  Margin="80,20,80,0" Width="auto">
-                            <StackPanel Orientation="Horizontal" Width="150"  HorizontalAlignment="Center">
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
-                               Source="Images\sword.png" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                    <ToggleButton x:Name="plusRight" Background ="Transparent" >
+                        <StackPanel  Margin="80,20,80,0" Width="auto" HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal" Width="150" Height="30" HorizontalAlignment="Center">
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=pplusRightlus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                               Source="Images\sword.png" Margin="40,0,0,0" Height="27" Width="29" />
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                               Source="Images\star.png" Height="27" Width="29" />
-                                <Image Visibility="{Binding Path=IsChecked, ElementName=plus,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Image Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                Source="Images\running.png" Height="27" Width="29"/>
                             </StackPanel>
-                            <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5" Cursor="Arrow">
+                            <Image Style="{StaticResource ActiveStyle}" Width="60" Height="80" RenderTransformOrigin="0.5,0.5" >
                                 <Image.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="1" ScaleX="-1"/>
