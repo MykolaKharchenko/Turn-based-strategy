@@ -20,8 +20,6 @@ namespace training.Interfaces
         string activeUnitImagePath { get; set; }
         string name { get; set; }
 
-
-        //void Act(Unit enemt = null, Battlefield bf = null);
         void GetDamage(Unit enemy = null);
         void Move(Battlefield bf = null);
         void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null);

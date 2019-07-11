@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using training.Interfaces;
 using training.Models;
+using training.Models.Units;
 using training.Services;
 
 namespace training.ViewModel
@@ -35,9 +36,21 @@ namespace training.ViewModel
             set
             {
                 selectedActiveUnit = value;
+                OnPropertyChanged("SelectedActiveUnit");
+            }
+        }
+
+        private IUnit selectedUnit;
+        public IUnit SelectedUnit
+        {
+            get { return selectedUnit; }
+            set
+            {
+                selectedUnit = value;
                 OnPropertyChanged("SelectedUnit");
             }
         }
+
         #endregion
 
         #region ctor GameDriveVM
@@ -66,15 +79,14 @@ namespace training.ViewModel
             {
                 return attackEnemyUnitCommand ??
                 (attackEnemyUnitCommand = new RelayCommand((obj) =>
-                {                                      //   Execute block
+                //   Execute block
+                {
                     IUnit AttackingUnit = obj as IUnit;
-
-
-                    selectedActiveUnit.GetDamage();     //     - создать подкоманду для клоцания Действий
+                    AttackingUnit.GetDamage(selectedUnit as Unit);
                     currentGame.TurnSwitching();
-
                 },
-                (obj) => CurrentGame.IsGameOver == true && obj != null)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                (obj) => CurrentGame.IsGameOver == true && obj != null)
                 );
             }
         }
@@ -87,15 +99,7 @@ namespace training.ViewModel
                 return specSkillUnitCommand ??
                 (specSkillUnitCommand = new RelayCommand((obj) =>
                 {                                      //   Execute block
-                    try
-                    {
-                        selectedActiveUnit.SpecialSkill();     
-                        currentGame.TurnSwitching();
-                    }
-                    catch (Exception ex)
-                    {
-                        dialogService.ShowMessage(ex.Message);
-                    }
+
                 },
                 (obj) => (CurrentGame.IsGameOver == true && SelectedActiveUnit.AbilitySpecialSkill())   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
                 ));
@@ -109,22 +113,12 @@ namespace training.ViewModel
             {
                 return moveUnitCommand ??
                 (moveUnitCommand = new RelayCommand((obj) =>
-                {                                      //   Execute block
-                    try
-                    {
-                        selectedActiveUnit.Move();
-                        currentGame.TurnSwitching();
-                    }
-                    catch (Exception ex)
-                    {
-                        dialogService.ShowMessage(ex.Message);
-                    }
+                {
                 },
                 (obj) => (CurrentGame.IsGameOver == true)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
                 ));
             }
         }
-
         #endregion
 
         #region implementation INotifyPropertyChanged

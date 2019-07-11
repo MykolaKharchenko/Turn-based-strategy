@@ -15,7 +15,7 @@ namespace training.Models.Units
 
         public int totalHP;
         public int stackSpeed;
-        public int stackSize;   
+        public int stackSize;
         public int HP;
         public int OffensivePoints;
         public int DefensePoints;
@@ -25,19 +25,19 @@ namespace training.Models.Units
         public string attackIconPath = @"Images\sword.png";
         public string moveIconPath = @"Images\running.png";
         public string spesial_skillIconPath = @"Images\star.png";
-        protected string _activeUnitImagePath ="";
-        protected string _passiveUnitImagePath="";
-            
+        protected string _activeUnitImagePath = "";
+        protected string _passiveUnitImagePath = "";
+
         public int UnitSize { get { return stackSize; } }
         public int StackSpeed { get { return stackSpeed; } }
         public string Name { get { return name; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
-      
+
         public string passiveUnitImagePath { get { return _passiveUnitImagePath; } set { value = _passiveUnitImagePath; } }
         public string activeUnitImagePath { get { return _activeUnitImagePath; } set { value = _activeUnitImagePath; } }
 
         public bool IsActive { get; set; }
-       public bool IsSpecSkillACtive { get; set; }
+        public bool IsSpecSkillACtive { get; set; }
 
         public Unit()
         {
@@ -76,7 +76,7 @@ namespace training.Models.Units
 
         public virtual void SpecialSkill(Unit targetUnitStack = null, Battlefield bf = null)
         {
-            if(AbilitySpecialSkill(targetUnitStack, bf))
+            if (AbilitySpecialSkill(targetUnitStack, bf))
             {
                 // bla-bla = logic of specskill foer each real Unit
             }

@@ -17,6 +17,7 @@ namespace training.ViewModel
         IDialogService dialogService;
 
         public ObservableCollection<Game> Games;
+
         private Game selectedGame;
         public Game SelectedGame
         {
@@ -122,10 +123,12 @@ namespace training.ViewModel
         }
         #endregion
 
+        #region implementation INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string prop = "")      // CallerMemberName - read!!!
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+        #endregion
     }
 }
