@@ -58,30 +58,23 @@ namespace training.ViewModel
         }
         #endregion
 
-        #region commands
-        /// <summary>
-        /// SuperCommand - do i must use this command?
-        /// </summary>
-   
-        RelayCommand attackUnitCommand;
-        public RelayCommand AttackUnitCommand
+        #region commands   
+        RelayCommand attackEnemyUnitCommand;
+        public RelayCommand AttackEnemyUnitCommand
         {
             get
             {
-                return attackUnitCommand ??
-                (attackUnitCommand = new RelayCommand((obj) =>
+                return attackEnemyUnitCommand ??
+                (attackEnemyUnitCommand = new RelayCommand((obj) =>
                 {                                      //   Execute block
-                    try
-                    {
-                        selectedActiveUnit.GetDamage();     //     - создать подкоманду для клоцания Действий
-                        currentGame.TurnSwitching();
-                    }
-                    catch (Exception ex)
-                    {
-                        dialogService.ShowMessage(ex.Message);
-                    }
+                    IUnit AttackingUnit = obj as IUnit;
+
+
+                    selectedActiveUnit.GetDamage();     //     - создать подкоманду для клоцания Действий
+                    currentGame.TurnSwitching();
+
                 },
-                (obj) => CurrentGame.IsGameOver == true)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                (obj) => CurrentGame.IsGameOver == true && obj != null)   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
                 );
             }
         }

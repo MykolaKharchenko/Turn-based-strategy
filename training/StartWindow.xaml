@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:training"
         mc:Ignorable="d"
+        WindowStartupLocation="Manual"   Left="150" Top="50"
         Title="StartGame" Height="480" Width="360">
     <Grid Background="DarkGray">
         <Grid.RowDefinitions>
