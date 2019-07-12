@@ -92,6 +92,22 @@ namespace training.ViewModel
             }
         }
 
+        RelayCommand checkEnemyCommand;
+        public RelayCommand CheckEnemyCommand
+        {
+            get
+            {
+                return checkEnemyCommand ??
+                (checkEnemyCommand = new RelayCommand((obj) =>
+                //   Execute block
+                {
+
+                }));
+            }
+        }
+
+
+
         RelayCommand specSkillUnitCommand;
         public RelayCommand SpecSkillUnitCommand
         {

@@ -73,7 +73,7 @@
                             <StackPanel Width="150" Height="45" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        Command="{Binding AttackEnemyUnitCommand}" CommandParameter="{Binding SelectedActiveUnit}" Margin="5" Background="Transparent">
+                                        Command="{Binding AttackEnemyUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\sword.png" Height="29" Width="29" />
                                 </Button>
                                 <Button Style="{StaticResource ActiveStyleForButton}"
