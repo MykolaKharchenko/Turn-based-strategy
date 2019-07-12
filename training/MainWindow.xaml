@@ -10,11 +10,11 @@
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-
+        
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="16"/>
         </Style>
-        <Style TargetType="Button" x:Key="game_buttons">
+        <Style TargetType= "Button"  x:Key="game_buttons">
             <Setter Property="FontSize" Value="24"></Setter>
         </Style>
 
@@ -29,18 +29,18 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <!-- Proccessing units' images for ACTIVITY and CHECKING             == doesn't work ((((!!!!              -->  
+        
+        <!-- Proccessing units' images for ACTIVITY and CHECKING             == doesn't work ((((!!!!              -->
         <Style x:Key="ActiveStyleForButton" TargetType="{x:Type Button}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=IsActive}" Value="true">
-                    <Setter Property="Visibility" Value="Visible"/>
+                    <Setter Property="Opacity" Value="100"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Path=IsActive}" Value="false">
-                    <Setter Property="Visibility" Value="Hidden"/>
+                    <Setter Property="Opacity" Value="0"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-                
     </Window.Resources>
 
     <Grid Background="Green">
@@ -57,7 +57,7 @@
         <StackPanel x:Name="game_buttons" Width="auto" HorizontalAlignment="Center" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Button Width="150" Content="Save Game"  Margin="50,10"/>
             <Button Width="150" Content="Next Step" Margin="100,10"/>
-            <Button Width="150" Content="Game Menu" Margin="50,10"/>
+            <Button Command="{Binding AttackEnemyUnitCommand}" Width="150" Content="Game Menu" Margin="50,10"/>
         </StackPanel>
 
         <ListBox ItemsSource="{Binding Path=CurrentGame.PlayerLeft.UnitsStacks}" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch">
@@ -73,7 +73,7 @@
                             <StackPanel Width="150" Height="45" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
-                                        Command="{Binding AttackEnemyUnitCommand}" Margin="5" Background="Transparent">
+                                        Command="{Binding AttackEnemyUnitCommand}" CommandParameter="{Binding SelectedActiveUnit}" Margin="5" Background="Transparent">
                                     <Image Source="Images\sword.png" Height="29" Width="29" />
                                 </Button>
                                 <Button Style="{StaticResource ActiveStyleForButton}"
@@ -106,15 +106,18 @@
                     <ToggleButton x:Name="plusRight" Background ="Transparent" >
                         <StackPanel  Margin="80,20,80,0" Width="auto" HorizontalAlignment="Right">
                             <StackPanel Orientation="Horizontal" Width="150" Height="45" HorizontalAlignment="Center">
-                                <Button Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Button Style="{StaticResource ActiveStyleForButton}"
+                                        Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding AttackEnemyUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\sword.png" Height="29" Width="29" />
                                 </Button>
-                                <Button Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Button Style="{StaticResource ActiveStyleForButton}"
+                                        Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding SpecSkillUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\star.png" Height="29" Width="29" />
                                 </Button>
-                                <Button Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
+                                <Button Style="{StaticResource ActiveStyleForButton}"
+                                        Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding MoveUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\running.png" Height="29" Width="29"/>
                                 </Button>

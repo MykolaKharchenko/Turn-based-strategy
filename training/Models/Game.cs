@@ -77,7 +77,7 @@ namespace training.Models
         {
             playerLeft = new Player();
             playerRight = new Player();
-
+            
             StartGame();
         }
 
@@ -157,7 +157,7 @@ namespace training.Models
 
         public bool IsGameOver
         {
-            get { return ((GetTotalPlayerUnitSize(PlayerLeft) > 0) || (GetTotalPlayerUnitSize(PlayerRight) > 0)) ? false : true; }
+            get { return ((GetTotalPlayerUnitSize(PlayerLeft) == 0) || (GetTotalPlayerUnitSize(PlayerRight) == 0)) ? true : false; }
         }
 
         public int GetTotalPlayerUnitSize(Player player)

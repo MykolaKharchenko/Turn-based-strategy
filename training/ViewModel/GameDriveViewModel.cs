@@ -81,12 +81,13 @@ namespace training.ViewModel
                 (attackEnemyUnitCommand = new RelayCommand((obj) =>
                 //   Execute block
                 {
+                    
                     IUnit AttackingUnit = obj as IUnit;
-                    AttackingUnit.GetDamage(selectedUnit as Unit);
+                    //AttackingUnit.GetDamage(selectedUnit as Unit);
                     currentGame.TurnSwitching();
                 },
                 //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
-                (obj) => CurrentGame.IsGameOver == true && obj != null)
+                (obj) => CurrentGame.IsGameOver == false)       //  && obj != null
                 );
             }
         }
