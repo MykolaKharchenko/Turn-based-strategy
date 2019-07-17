@@ -47,6 +47,7 @@ namespace training.Models.Units
             IsActive = false;
             IsSpecSkillACtive = false;
             TimeoutToRefreshSkill = 2;
+            totalHP = this.stackSize * 1;
         }
 
         public void GetDamage(Unit enemy = null)

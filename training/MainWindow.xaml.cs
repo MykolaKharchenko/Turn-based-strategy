@@ -25,5 +25,16 @@ namespace training
             InitializeComponent();
             DataContext = new GameDriveViewModel( _dialogService, _fileService, game);
         }
+
+        //private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        //{
+        //    MessageBox.Show("Справка по приложению");
+        //}
+
+        private void WindowBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            skeleton.Background = Brushes.DarkGreen;
+            //MessageBox.Show("Вызов справки");            
+        }
     }
 }

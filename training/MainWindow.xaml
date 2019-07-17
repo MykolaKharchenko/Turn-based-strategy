@@ -29,7 +29,28 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        
+
+        <Style x:Key="UnitInteractivity" TargetType="StackPanel">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" >
+                        <Setter.Value>
+                            <ToolTip Background="White" Foreground="DarkGreen" HasDropShadow="True"
+                                     Placement="Bottom" Opacity="30" HorizontalOffset="15" VerticalOffset="10">
+                                <StackPanel DataContext="{Binding }">
+                                    <TextBlock>Type: Archer</TextBlock>
+                                    <TextBlock>UnitSize: 58</TextBlock>
+                                    <TextBlock Text="{Binding UnitSize, StringFormat= Total HP: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding totalHP, StringFormat= Total HP: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding HP, StringFormat= Total HP: {0}}"></TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Proccessing units' images for ACTIVITY and CHECKING             == doesn't work ((((!!!!              -->
         <Style x:Key="ActiveStyleForButton" TargetType="{x:Type Button}">
             <Style.Triggers>
@@ -43,7 +64,12 @@
         </Style>
     </Window.Resources>
 
-    <Grid Background="Green">
+    <!--<Window.CommandBindings>
+        <CommandBinding Command="{Binding AttackCommand}" Executed="WindowBinding_Executed" />
+    </Window.CommandBindings>-->
+
+
+    <Grid Background="Green" x:Name="skeleton">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
             <RowDefinition/>
@@ -55,9 +81,12 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel x:Name="game_buttons" Width="auto" HorizontalAlignment="Center" Grid.ColumnSpan="3" Orientation="Horizontal">
+
+            <Button Width="150" x:Name="helpButton" Command="{Binding AttackCommand}" Content="Help" />
+            <!--<Image Source="Images\star.png" Width="50" Style="{StaticResource UnitInteractivity}"/>-->
             <Button Width="150" Content="Save Game"  Margin="50,10"/>
             <Button Width="150" Content="Next Step" Margin="100,10"/>
-            <Button Command="{Binding AttackEnemyUnitCommand}" Width="150" Content="Game Menu" Margin="50,10"/>
+            <Button x:Name="r2d2" Command="{Binding AttackEnemyUnitCommand}" Width="150" Content="Game Menu" Margin="50,10"/>
         </StackPanel>
 
         <ListBox ItemsSource="{Binding Path=CurrentGame.PlayerLeft.UnitsStacks}" Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Stretch">
@@ -69,13 +98,18 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <ToggleButton x:Name="plusLeft" Background ="Transparent" Height="auto">
-                        <StackPanel Margin="-80,20,80,0" Width="auto">
+                        <StackPanel Margin="-80,20,80,0" Width="auto" Style ="{StaticResource UnitInteractivity}">
                             <StackPanel Width="150" Height="45" Orientation="Horizontal" HorizontalAlignment="Center">
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding AttackEnemyUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\sword.png" Height="29" Width="29" />
                                 </Button>
+                                <Button CommandTarget="{Binding ElementName=txtBox}" 
+                                        Command="Copy">
+
+                                </Button>
+
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding SpecSkillUnitCommand}" Margin="5" Background="Transparent">
@@ -104,7 +138,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <ToggleButton x:Name="plusRight" Background ="Transparent" >
-                        <StackPanel  Margin="80,20,80,0" Width="auto" HorizontalAlignment="Right">
+                        <StackPanel  Margin="80,20,80,0" Width="auto" HorizontalAlignment="Right" Style ="{StaticResource UnitInteractivity}">                         
                             <StackPanel Orientation="Horizontal" Width="150" Height="45" HorizontalAlignment="Center">
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusRight,Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -122,7 +156,7 @@
                                     <Image Source="Images\running.png" Height="29" Width="29"/>
                                 </Button>
                             </StackPanel>
-                            <Image Style="{StaticResource ActiveStyle}" Margin="-15,0,0,0"  Width="60" Height="80" RenderTransformOrigin="0.5,0.5" >
+                            <Image Style="{StaticResource ActiveStyle}" Margin="-15,0,0,0"  Width="60" Height="80" RenderTransformOrigin="0.5,0.5" >                   
                                 <Image.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="1" ScaleX="-1"/>

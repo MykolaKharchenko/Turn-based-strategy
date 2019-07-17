@@ -81,7 +81,9 @@ namespace training.ViewModel
                 (attackEnemyUnitCommand = new RelayCommand((obj) =>
                 //   Execute block
                 {
-                    
+                    CheckEnemyCommand.Execute(this);                   
+
+
                     IUnit AttackingUnit = obj as IUnit;
                     //AttackingUnit.GetDamage(selectedUnit as Unit);
                     currentGame.TurnSwitching();
@@ -94,7 +96,7 @@ namespace training.ViewModel
 
         RelayCommand checkEnemyCommand;
         public RelayCommand CheckEnemyCommand
-        {
+        {            
             get
             {
                 return checkEnemyCommand ??
@@ -106,8 +108,6 @@ namespace training.ViewModel
             }
         }
 
-
-
         RelayCommand specSkillUnitCommand;
         public RelayCommand SpecSkillUnitCommand
         {
@@ -117,8 +117,8 @@ namespace training.ViewModel
                 (specSkillUnitCommand = new RelayCommand((obj) =>
                 {                                      //   Execute block
 
-                },
-                (obj) => (CurrentGame.IsGameOver == true && SelectedActiveUnit.AbilitySpecialSkill())   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
+                }//,
+                //(obj) => (CurrentGame.IsGameOver == true && SelectedActiveUnit.AbilitySpecialSkill())   //   CanExecute condition  - т.е. комманда досупна к выполенению пока ЭТО условие == ТРУ
                 ));
             }
         }
