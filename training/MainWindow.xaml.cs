@@ -31,10 +31,10 @@ namespace training
         //    MessageBox.Show("Справка по приложению");
         //}
 
-        private void WindowBinding_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            skeleton.Background = Brushes.DarkGreen;
-            //MessageBox.Show("Вызов справки");            
-        }
+        //private void WindowBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        //{
+        //    skeleton.Background = Brushes.DarkGreen;
+        //    //MessageBox.Show("Вызов справки");            
+        //}
     }
 }

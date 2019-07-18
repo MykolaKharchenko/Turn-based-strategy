@@ -14,12 +14,12 @@ namespace training.Models.Units
         public Archers() : base()
         {
             name = "Archers";
-            totalHP = this.stackSize * StaticConfig.ArcherHP;
             stackSpeed = StaticConfig.ArcherSpeed;
             HP = 50;
             OffensivePoints = 7;
             DefensePoints = 4;
             stackSize = StaticConfig.Next(100);
+            totalHP = this.stackSize * StaticConfig.ArcherHP;
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_ArcherActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Archer.gif";
         }

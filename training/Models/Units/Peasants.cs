@@ -14,12 +14,12 @@ namespace training.Models.Units
         public Peasants() : base()
         {
             name = "Peasants";
-            totalHP = this.stackSize * StaticConfig.PeasantHP;
             stackSpeed = StaticConfig.PeasantSpeed;
             HP = 30;
             OffensivePoints = 2;
             DefensePoints = 1;
             stackSize = StaticConfig.Next(500);
+            totalHP = this.stackSize * StaticConfig.PeasantHP;
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_PeasantActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Peasant.gif";
         }

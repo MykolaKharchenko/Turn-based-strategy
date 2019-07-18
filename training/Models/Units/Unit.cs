@@ -13,7 +13,9 @@ namespace training.Models.Units
     {
         public string name { get; set; }
 
-        public int totalHP;
+        public int totalHP { get; set; }
+
+        //public int totalHP;
         public int stackSpeed;
         public int stackSize;
         public int HP;
@@ -31,6 +33,7 @@ namespace training.Models.Units
         public int UnitSize { get { return stackSize; } }
         public int StackSpeed { get { return stackSpeed; } }
         public string Name { get { return name; } }
+        public int TotalHP { get { return totalHP; } }
         public bool IsAlive { get { return (stackSize) > 0; } }
 
         public string passiveUnitImagePath { get { return _passiveUnitImagePath; } set { value = _passiveUnitImagePath; } }

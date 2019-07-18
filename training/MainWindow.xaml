@@ -36,13 +36,11 @@
                     <Setter Property="ToolTip" >
                         <Setter.Value>
                             <ToolTip Background="White" Foreground="DarkGreen" HasDropShadow="True"
-                                     Placement="Bottom" Opacity="30" HorizontalOffset="15" VerticalOffset="10">
+                                     Placement="Bottom" Opacity="5" HorizontalOffset="15" VerticalOffset="10">
                                 <StackPanel DataContext="{Binding }">
-                                    <TextBlock>Type: Archer</TextBlock>
-                                    <TextBlock>UnitSize: 58</TextBlock>
-                                    <TextBlock Text="{Binding UnitSize, StringFormat= Total HP: {0}}"></TextBlock>
-                                    <TextBlock Text="{Binding totalHP, StringFormat= Total HP: {0}}"></TextBlock>
-                                    <TextBlock Text="{Binding HP, StringFormat= Total HP: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Name, StringFormat= Type: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding UnitSize, StringFormat= UnitSize: {0}}"></TextBlock>
+                                    <TextBlock Text="{Binding TotalHP, StringFormat= TotalHP: {0}}"></TextBlock>
                                 </StackPanel>
                             </ToolTip>
                         </Setter.Value>

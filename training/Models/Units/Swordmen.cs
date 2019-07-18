@@ -14,12 +14,12 @@ namespace training.Models.Units
         public Swordmen() : base()
         {
             name = "Swordmen";
-            totalHP = this.stackSize * StaticConfig.SwordmanHP;
             stackSpeed = StaticConfig.SwordmanSpeed;
             HP = 100;
             OffensivePoints = 5;
             DefensePoints = 8;
             stackSize = StaticConfig.Next(50);
+            totalHP = this.stackSize * StaticConfig.SwordmanHP;
             _activeUnitImagePath = @"Images\ActiveUnits\Creature_SwordsmanActive.gif";
             _passiveUnitImagePath = @"Images\DefaultUnits\Creature_Swordsman.gif";
         }
