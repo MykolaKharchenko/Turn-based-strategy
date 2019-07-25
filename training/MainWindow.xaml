@@ -62,11 +62,6 @@
         </Style>
     </Window.Resources>
 
-    <!--<Window.CommandBindings>
-        <CommandBinding Command="{Binding AttackCommand}" Executed="WindowBinding_Executed" />
-    </Window.CommandBindings>-->
-
-
     <Grid Background="Green" x:Name="skeleton">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
@@ -80,8 +75,6 @@
 
         <StackPanel x:Name="game_buttons" Width="auto" HorizontalAlignment="Center" Grid.ColumnSpan="3" Orientation="Horizontal">
 
-            <Button Width="150" x:Name="helpButton" Command="{Binding AttackCommand}" Content="Help" />
-            <!--<Image Source="Images\star.png" Width="50" Style="{StaticResource UnitInteractivity}"/>-->
             <Button Width="150" Content="Save Game"  Margin="50,10"/>
             <Button Width="150" Content="Next Step" Margin="100,10"/>
             <Button x:Name="r2d2" Command="{Binding AttackEnemyUnitCommand}" Width="150" Content="Game Menu" Margin="50,10"/>
@@ -102,12 +95,7 @@
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding AttackEnemyUnitCommand}" Margin="5" Background="Transparent">
                                     <Image Source="Images\sword.png" Height="29" Width="29" />
-                                </Button>
-                                <Button CommandTarget="{Binding ElementName=txtBox}" 
-                                        Command="Copy">
-
-                                </Button>
-
+                                </Button>               
                                 <Button Style="{StaticResource ActiveStyleForButton}"
                                         Visibility="{Binding Path=IsChecked, ElementName=plusLeft,Converter={StaticResource BooleanToVisibilityConverter}}"
                                         Command="{Binding SpecSkillUnitCommand}" Margin="5" Background="Transparent">
